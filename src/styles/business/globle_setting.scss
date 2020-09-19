@@ -1,0 +1,16 @@
+#globle-setting {
+    margin: 0 30px 0 20px;
+}
+
+.globle-setting_dialog {
+    .setting-item {
+        display: flex;
+        height: 40px;
+        margin-left: 10px;
+        
+        .label {
+            margin-right: 10px;
+            color:  #5c5c5c;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+#logo-box {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+        img {
+            transform: rotate(-360000deg);
+            transition: all 100s;
+        }
+    }
+
+    img {
+        transition: all 10s;
+    }
+
+    span {
+        font-size: 20px;
+        font-family: 'Micsoft YaHei';
+        font-weight: 700;
+        color: #5c5c5c;
+        margin-left: 10px;
+    }
+}

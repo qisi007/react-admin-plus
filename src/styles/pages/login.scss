@@ -1,0 +1,15 @@
+#login {
+    background-color: #000c27;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form {
+        width: 500px;
+    }
+
+    .ant-form-item-required {
+        color: #fff;
+    }
+}

@@ -1,0 +1,67 @@
+#home {
+    display: flex;
+    justify-content: space-between;
+
+    // 根据屏幕宽度动态计算标签页宽度
+    @for $i from 0 to 15 {
+        @media screen and (max-width: 520px + 100px * $i) and (min-width: 420px + 100px * $i){
+            .ant-tabs {
+                max-width: 80px + 100 * $i;
+                margin-top: 30px;
+            }
+        }
+    }
+
+    .meun-box {
+        height: 100vh;
+        border-right: 1px solid rgb(204, 204, 204);
+        &::-webkit-scrollbar {
+            display: none;
+          }
+    }
+
+    .main {
+        width: 100%;
+
+        .header-box {
+            display: flex;
+            align-items: center;
+            height: 45px;
+            justify-content: space-between;
+            padding-top: 5px;
+            
+            .header-box_right {
+                display: flex;
+                width: 165px;
+
+                .user-box {
+                    text-align: end;
+                    overflow: hidden;
+                    color: #1fb19e;
+                    margin-top: -3px;
+                }
+            }
+        }
+    }
+
+    // 标签页样式修改
+    .ant-tabs-tab  {
+        // background: black !important;
+        border: none !important;
+    }
+
+    .anticon-close {
+        color: #ccc;
+        transition: color .3s;
+
+        &:hover {
+            color: #1890ff;
+            transition: color .3s;
+        }
+    }
+    
+    .ant-tabs-top > .ant-tabs-nav::before {
+        border-bottom: none;
+    }
+}
+
