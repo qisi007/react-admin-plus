@@ -17,21 +17,21 @@ interface State {
 
 }
 
-
 export default class LogoBox extends Component<Props, State> {
     render () {
         let { url, title, color, size } = this.props;
         // 样式计算
         let transform: string = size === 'large' ? 'scale(1)' : 'scale(0.5)'
         return (
-            <a href="https://www.liuguisheng.vip/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.liuguisheng.vip/" 
+               target="_blank" 
+               rel="noopener noreferrer">
                 <div id="logo-box" 
                  style={{transform}}>
                 <img src={url} alt=""/>
                 <span style={{color}}>{title}</span>
             </div>
             </a>
-            
         )
     }
 }

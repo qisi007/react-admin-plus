@@ -47,6 +47,6 @@ export const  ICON_LIST_CONFIG =  {
 }
 
 // 标签页默认配置
-export const initialPanes: any[] = [
+export const INITIAL_PANES: any[] = [
     {title: "主页", content: "主页", key: "0"}
 ];

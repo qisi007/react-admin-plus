@@ -6,7 +6,7 @@ import GlobleSetting from "../../components/business/GlobleSetting";
 import { HomeService } from "../../service/home_service";
 import { NavItem } from "../../interface/home_interface";
 import LogoBox from "../../components/base/logo_box";
-import { initialPanes } from "../../config/home_config";
+import { INITIAL_PANES } from "../../config/home_config";
 const LOGO: string = require("../../assets/images/logo.png");
  
 // 引入子导航
@@ -43,7 +43,7 @@ export default class Home extends Component<Props, State> {
             mode: 'inline',
             overflowY: 'scroll',
             activeKey: '0',
-            panes: initialPanes,
+            panes: INITIAL_PANES,
         }
     }
     componentDidUpdate = () => {
@@ -54,7 +54,7 @@ export default class Home extends Component<Props, State> {
             (activeTab as any).style.background = background;
         } 
     }
-    render() {
+    render = () => {
         let { username } = this.props.location.state || {username: 'admin'}
         let { createNav, clickNavItem, handGlobalSetting, onChange, onEdit  } = this;
         let { background, collapsed, theme, mode, overflowY, panes, activeKey } = this.state;
@@ -94,12 +94,11 @@ export default class Home extends Component<Props, State> {
                             onChange={onChange}
                             onEdit={onEdit}
                             activeKey={activeKey}>
-                            {panes.map((pane: any) => (
-                            <TabPane tab={pane.title} 
-                                     key={pane.key}>
-                                {pane.content}
-                            </TabPane>
-                            ))}
+                             {panes.map((pane: any) => (
+                                <TabPane tab={pane.title}
+                                    key={pane.key}>
+                                    {pane.content}
+                                </TabPane>))}
                         </Tabs>
                         {/* 右侧个人信息 */}
                         <div className="header-box_right">
@@ -160,11 +159,11 @@ export default class Home extends Component<Props, State> {
         // 生成随机key
         let key: string = Math.random().toString();
         // 判断是否添加过标签，添加过就不在添加并且激活的key为之前的key
-        let hasTitle = initialPanes.find(el => el.title === title );
+        let hasTitle = INITIAL_PANES.find(el => el.title === title );
         let activeKey: string = hasTitle === undefined ? key : hasTitle.key;
-        hasTitle === undefined && initialPanes.push({title, content: title, key });
+        hasTitle === undefined && INITIAL_PANES.push({title, content: title, key });
         // 更新状态
-        this.setState({ panes: initialPanes, activeKey });
+        this.setState({ panes: INITIAL_PANES, activeKey });
     }
 
     /**
@@ -197,14 +196,14 @@ export default class Home extends Component<Props, State> {
     onEdit = (targetKey: string, action: string) => {
         if ( action === 'remove') {
             // 找到删除的索引
-            let removeIndex: number = initialPanes.findIndex( el => el.key === targetKey);
+            let removeIndex: number = INITIAL_PANES.findIndex( el => el.key === targetKey);
             // 判断并生成激活的key
             let activeKey: string;
-            if ( removeIndex === 0 && initialPanes.length>1 ) activeKey = initialPanes[removeIndex+1].key;
-            if ( removeIndex >0) activeKey = initialPanes[removeIndex-1].key;
+            if ( removeIndex === 0 && INITIAL_PANES.length>1 ) activeKey = INITIAL_PANES[removeIndex+1].key;
+            if ( removeIndex >0) activeKey = INITIAL_PANES[removeIndex-1].key;
             // 删除tab并更新
-            initialPanes.splice(removeIndex, 1);
-            this.setState({panes: initialPanes, activeKey});
+            INITIAL_PANES.splice(removeIndex, 1);
+            this.setState({panes: INITIAL_PANES, activeKey});
         }
     }
 }

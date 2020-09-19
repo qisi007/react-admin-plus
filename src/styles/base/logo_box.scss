@@ -5,15 +5,13 @@
     justify-content: center;
     cursor: pointer;
 
-    &:hover {
-        img {
+    img {
+        transition: all 10s;
+
+        &:hover {
             transform: rotate(-360000deg);
             transition: all 100s;
         }
-    }
-
-    img {
-        transition: all 10s;
     }
 
     span {

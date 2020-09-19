@@ -5,7 +5,7 @@
 * @version 2020-09-14 14:02:48 星期一
 */
 
-export const navListMock = [
+export const NAV_LIST_MOCK = [
     {
         "code": 725,
         "name": "房客中心",

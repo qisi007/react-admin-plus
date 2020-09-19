@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import { Form, Input, Button, message } from 'antd';
 import { loginForm } from '../../interface/login_interface';
+import { MESSAGE_CONFIG } from '../../config/message_config';
 
 // prop接口
 interface Prop {
@@ -29,49 +30,44 @@ const tailLayout = {
 @inject('homeStore')
 @observer
 export default class Login extends Component<Prop, State> {
-    constructor ( prop: Prop) {
+    constructor(prop: Prop) {
         super(prop);
         this.state = {
             loading: false
         }
     }
 
-    render() {
+    render = () => {
         let { onFinish } = this;
         let { loading } = this.state;
         return (
             <div id="login">
-                <Form
-                    {...layout}
+                <Form {...layout}
                     name="basic"
                     className="form"
                     size="large"
                     onFinish={onFinish}>
+
                     <Form.Item
                         label="账号"
                         name="username"
-                        rules={[{ required: true, message: '请输入账号！' }]}
-                    >
+                        rules={[{ required: true, message: MESSAGE_CONFIG.usernameEmpty }]}>
                         <Input />
                     </Form.Item>
 
                     <Form.Item
                         label="密码"
                         name="password"
-                        rules={[{ required: true, message: '请输入密码！' }]}
-                    >
+                        rules={[{ required: true, message: MESSAGE_CONFIG.passwordEmpty }]}>
                         <Input.Password />
                     </Form.Item>
 
                     <Form.Item {...tailLayout}>
                         <Button type="primary"
-                                htmlType="submit"
-                                loading={loading}>
-                            登录
-                        </Button>
+                            htmlType="submit"
+                            loading={loading}>登录</Button>
                     </Form.Item>
                 </Form>
-
             </div>
         )
     }
@@ -84,8 +80,8 @@ export default class Login extends Component<Prop, State> {
     */
     onFinish = (form: loginForm) => {
         // 消息提示
-        message.success('登录成功！');
+        message.success(MESSAGE_CONFIG.logoSuccess);
         // 跳转到home页
-        this.props.history.push({pathname: '/home', state: form})
+        this.props.history.push({ pathname: '/home', state: form })
     };
 }
