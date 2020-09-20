@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import HomeStore from "../../store/home";
 import { Menu, Tabs } from "antd";
-import GlobleSetting from "../../components/business/GlobleSetting";
+import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
-import { NavItem } from "../../interface/home_interface";
+import { NavItem, TabItem } from "../../interface/home_interface";
 import LogoBox from "../../components/base/logo_box";
 import { INITIAL_PANES } from "../../config/home_config";
+import { componentFactory } from "./component_factory";
 const LOGO: string = require("../../assets/images/logo.png");
  
 // 引入子导航
@@ -28,7 +29,7 @@ interface State {
     mode: string,
     overflowY: string,
     activeKey: string,
-    panes: any[]
+    panes: TabItem[]
 }
 
 @inject('homeStore')
@@ -94,10 +95,10 @@ export default class Home extends Component<Props, State> {
                             onChange={onChange}
                             onEdit={onEdit}
                             activeKey={activeKey}>
-                             {panes.map((pane: any) => (
+                             {panes.map((pane: TabItem) => (
                                 <TabPane tab={pane.title}
                                     key={pane.key}>
-                                    {pane.content}
+                                    {componentFactory(pane)}
                                 </TabPane>))}
                         </Tabs>
                         {/* 右侧个人信息 */}

@@ -16,3 +16,10 @@ export interface SettingItem {
 export interface NavItem {
     [ prop:string]: any
 }
+
+// 标签页接口
+export interface TabItem {
+    title: string,
+    content: string,
+    key: string
+}
