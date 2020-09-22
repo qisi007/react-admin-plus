@@ -1,9 +1,14 @@
 #login {
-    background-color: #000c27;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 1s;
+    
+    h1 {
+        color: #fff;
+        font-size: 50px;
+    }
 
     .form {
         width: 500px;

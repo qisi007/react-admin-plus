@@ -98,6 +98,7 @@ export default class Home extends Component<Props, State> {
                              {panes.map((pane: TabItem) => (
                                 <TabPane tab={pane.title}
                                     key={pane.key}>
+                                    {/* 动态标签内容 */}
                                     {componentFactory(pane)}
                                 </TabPane>))}
                         </Tabs>

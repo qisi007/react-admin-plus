@@ -11,7 +11,8 @@ interface Prop {
 
 // state接口
 interface State {
-    loading: boolean
+    loading: boolean,
+    backgroundColor: string
 }
 
 // 表单布局
@@ -33,15 +34,22 @@ export default class Login extends Component<Prop, State> {
     constructor(prop: Prop) {
         super(prop);
         this.state = {
-            loading: false
+            loading: false,
+            backgroundColor: '#2124827'
         }
     }
 
     render = () => {
+        setTimeout(() => {
+            let backgroundColor: string = '#' + (Math.random() * 2333333).toFixed();
+            this.setState({backgroundColor})
+        },100)
         let { onFinish } = this;
-        let { loading } = this.state;
+        let { loading, backgroundColor } = this.state;
         return (
-            <div id="login">
+            <div id="login" 
+                 style={{backgroundColor}}>
+                <h1>React-Admin-Plus</h1>
                 <Form {...layout}
                     name="basic"
                     className="form"

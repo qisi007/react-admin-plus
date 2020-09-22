@@ -10,7 +10,7 @@ import { TabItem } from "../../interface/home_interface";
 
 
 import { framePage } from "./frame_page";
-import { indexPage } from "./index_page";
+import indexPage from "./index_page";
 
 // 组件注册
 const components:{[prop: string]: any} = {

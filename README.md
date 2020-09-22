@@ -4,9 +4,19 @@
 
 基于react、ant-ui、typescript的前端微服务框架。
 
+## 地址
 
+[demo](https://www.liuguisheng.vip/react-admin-plus/#/login)
 
-
+## 技术栈
+ - [TypeScript](https://www.tslang.cn/docs/home.html)
+ - [react](https://zh-hans.reactjs.org/)
+ - [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+ - [ant-ui](https://ant.design/index-cn)
+ - [mobx](https://mobx.js.org/README.html)
+ - [sass](https://www.sass.hk/docs/)
+ - [gh-pages](https://pages.github.com/)
+ - [lodash](https://www.lodashjs.com/)
 
 <br/>
 
