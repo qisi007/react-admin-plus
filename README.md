@@ -6,7 +6,7 @@
 
 ## 地址
 
-[demo](https://www.liuguisheng.vip/react-admin-plus/#/login)
+<a href="https://www.liuguisheng.vip/react-admin-plus/#/login" target="blank">demo</a>
 
 ## 技术栈
  - [TypeScript](https://www.tslang.cn/docs/home.html)
@@ -20,7 +20,7 @@
 
 <br/>
 
-## LICENSE
+## 许可证
 
 [MIT License](https://github.com/qisi007/react-admin-plus/blob/master/LICENSE)
 
