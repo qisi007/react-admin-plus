@@ -49,6 +49,12 @@ export default class Login extends Component<Prop, State> {
         return (
             <div id="login" 
                  style={{backgroundColor}}>
+                <iframe className="github-star"
+                        title="github star"
+                        width="100px" height="20px"
+                        frameBorder="0" scrolling="0"
+                        src="https://ghbtns.com/github-btn.html?user=qisi007&repo=react-admin-plus&type=star&count=true" >
+                </iframe>
                 <h1>React-Admin-Plus</h1>
                 <Form {...layout}
                     name="basic"
