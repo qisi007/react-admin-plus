@@ -15,18 +15,6 @@ interface State {
     backgroundColor: string
 }
 
-// 表单布局
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-};
-
-// 按钮布局
-const tailLayout = {
-    wrapperCol: { offset: 8, span: 16 },
-};
-
-
 
 @inject('homeStore')
 @observer
@@ -53,10 +41,10 @@ export default class Login extends Component<Prop, State> {
                         title="github star"
                         width="100px" height="20px"
                         frameBorder="0" scrolling="0"
-                        src="https://ghbtns.com/github-btn.html?user=qisi007&repo=react-admin-plus&type=star&count=true" >
+                        src="https://img.shields.io/github/stars/qisi007/react-admin-plus?style=social&label=Star&maxAge=2592000">
                 </iframe>
                 <h1>React-Admin-Plus</h1>
-                <Form {...layout}
+                <Form 
                     name="basic"
                     className="form"
                     size="large"
@@ -66,22 +54,23 @@ export default class Login extends Component<Prop, State> {
                         label="账号"
                         name="username"
                         rules={[{ required: true, message: MESSAGE_CONFIG.usernameEmpty }]}>
-                        <Input />
+                        <Input placeholder="请输入账号"/>
                     </Form.Item>
 
                     <Form.Item
                         label="密码"
                         name="password"
                         rules={[{ required: true, message: MESSAGE_CONFIG.passwordEmpty }]}>
-                        <Input.Password />
+                        <Input.Password placeholder="请输入密码"/>
                     </Form.Item>
 
-                    <Form.Item {...tailLayout}>
+                    <Form.Item>
                         <Button type="primary"
                             htmlType="submit"
                             loading={loading}>登录</Button>
                     </Form.Item>
                 </Form>
+                <div className="tips">*账号密码随便输入</div>
             </div>
         )
     }
