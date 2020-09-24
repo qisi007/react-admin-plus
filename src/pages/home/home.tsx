@@ -81,6 +81,8 @@ export default class Home extends Component<Props, State> {
                         {/* 主页导航 */}
                         <Menu.Item key="index" 
                                    onClick={clickNavItem}>主页</Menu.Item>
+                        <Menu.Item key="antv" 
+                                   onClick={clickNavItem}>图表</Menu.Item>
                         {/* 其他导航 */}
                         {createNav()}
                     </Menu>

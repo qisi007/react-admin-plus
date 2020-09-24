@@ -9,18 +9,21 @@ import React from "react";
 import { TabItem } from "../../interface/home_interface";
 
 
-import { framePage } from "./frame_page";
-import indexPage from "./index_page";
+import framePage from "./child/frame_page";
+import indexPage from "./child/index_page";
+import antvPage from "./child/antv_page";
 
-// 组件注册
+// 页面注册
 const components:{[prop: string]: any} = {
     'index': indexPage,
-    'frame': framePage
+    'frame': framePage,
+    'antv': antvPage
 }
 
-export const componentFactory = ( config: TabItem) => {
-    let { key } = config;
-    let flag: string = key==='0' ? 'index' : 'frame';
+export const componentFactory = ( config: TabItem ) => {
+    let { title } = config;
+    let flag: string = title==='主页' ? 'index' : 'frame';
+    if ( title === '图表') flag = 'antv';
     const Component = components[flag];
     return React.createElement(Component, {prop: config})
-}
+}    
