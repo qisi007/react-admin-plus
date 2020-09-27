@@ -62,7 +62,6 @@ export default class Home extends Component<Props, State> {
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
         tabs.length && tabs.forEach( (el:any) =>  el.style.background=background);
-        let borderBottom: string = background === '#fff' ? '1px solid #ccc' : '1px solid #fff';
         let color: string = background === '#fff' ? '#5c5c5c' : '#fff';
         let size: string = !collapsed ? 'large' : 'small';
         let width: string = !collapsed ? '300px' : '75px'
@@ -88,11 +87,10 @@ export default class Home extends Component<Props, State> {
                     </Menu>
                 </div>
                 <div className="main">
-                    <div className="header-box"
-                        style={{ borderBottom }}>
+                    <div className="header-box">
                         {/* 顶部标签 */}
                         <Tabs type="editable-card"
-                            style={{ color}}
+                            style={{ color }}
                             hideAdd={true}
                             onChange={onChange}
                             onEdit={onEdit}
@@ -111,6 +109,7 @@ export default class Home extends Component<Props, State> {
                                            handGlobalSetting={handGlobalSetting} />
                         </div>
                     </div>
+                    <div className="line"></div>
                 </div>
             </div>
         )

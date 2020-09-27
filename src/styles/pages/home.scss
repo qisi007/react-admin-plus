@@ -7,7 +7,6 @@
         @media screen and (max-width: 520px + 100px * $i) and (min-width: 420px + 100px * $i){
             .ant-tabs {
                 max-width: 80px + 100 * $i;
-                margin-top: 30px;
             }
         }
     }
@@ -25,14 +24,12 @@
 
         .header-box {
             display: flex;
-            align-items: center;
-            height: 45px;
             justify-content: space-between;
-            padding-top: 5px;
             
             .header-box_right {
                 display: flex;
                 width: 165px;
+                margin-top: 10px;
 
                 .user-box {
                     text-align: end;
@@ -42,11 +39,20 @@
                 }
             }
         }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            position: fixed;
+            top: 40px;
+
+
+        }
     }
 
     // 标签页样式修改
     .ant-tabs-tab  {
-        // background: black !important;
         border: none !important;
     }
 
