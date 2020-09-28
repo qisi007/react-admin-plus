@@ -18,6 +18,7 @@
  - [gh-pages](https://pages.github.com/)
  - [echarts](https://echarts.apache.org/zh/index.html)
  - [echarts-for-react](https://www.npmjs.com/package/echarts-for-react)
+ - [copy-to-clipboard](https://www.npmjs.com/package/copy-to-clipboard)
 
 <br/>
 

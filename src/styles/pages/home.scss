@@ -95,9 +95,26 @@
     }
 
     .ant-card {
-        width: 130px;
+        width: 150px;
         margin: 0 10px 10px 0;
         text-align: center;
+        color: #5c5c5c;
+
+
+        .ant-card-body {
+            padding: 0;
+        }
+
+        .icon-box {
+            transition: all .3s;
+            padding: 24px;
+            
+            &:hover {
+                color: #1fb19e;
+                transform: scale(1.2) rotate(360deg);
+                transition: all .3s;
+            }
+        }
     }
 }
 

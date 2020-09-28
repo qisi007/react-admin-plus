@@ -1,0 +1,170 @@
+{
+  "id": "2107219",
+  "name": "react-admin-plus3",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "17456833",
+      "name": "法律法规",
+      "font_class": "falvfagui",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "17456834",
+      "name": "表格",
+      "font_class": "biaoge",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "17456835",
+      "name": "行政",
+      "font_class": "hangzheng",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "17456836",
+      "name": "公告",
+      "font_class": "gonggao",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "17456837",
+      "name": "福利",
+      "font_class": "fuli",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "17456838",
+      "name": "活动",
+      "font_class": "huodong",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "17456839",
+      "name": "材料指导",
+      "font_class": "cailiaozhidao",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "17456840",
+      "name": "合规",
+      "font_class": "hegui",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "17456841",
+      "name": "模板",
+      "font_class": "moban",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "17456842",
+      "name": "培训",
+      "font_class": "peixun",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "17456843",
+      "name": "意见反馈",
+      "font_class": "yijianfankui",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "17456844",
+      "name": "信息技术",
+      "font_class": "xinxijishu",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "17456845",
+      "name": "相册",
+      "font_class": "xiangce",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "17456846",
+      "name": "内刊",
+      "font_class": "neikan",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "17456847",
+      "name": "新闻",
+      "font_class": "xinwen",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "17456848",
+      "name": "用户指南",
+      "font_class": "yonghuzhinan",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "17456849",
+      "name": "员工培训",
+      "font_class": "yuangongpeixun",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "17456850",
+      "name": "问卷调查",
+      "font_class": "wenjuantiaocha",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "17456851",
+      "name": "员工目录",
+      "font_class": "yuangongmulu",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "17456852",
+      "name": "资源",
+      "font_class": "ziyuan",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "17456853",
+      "name": "资讯",
+      "font_class": "zixun",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "17456854",
+      "name": "政策",
+      "font_class": "zhengce",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "17456855",
+      "name": "理赔",
+      "font_class": "lipei",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    }
+  ]
+}
