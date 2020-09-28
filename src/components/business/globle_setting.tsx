@@ -58,7 +58,7 @@ export default class GlobleSetting extends Component<Props, State> {
                             确定
                         </Button>,
                     ]}>
-                    {/* 导航列表 */}
+                    {/* 配置列表 */}
                     {createConfigComponent()}
                 </Modal>
             </div>
@@ -131,6 +131,18 @@ export default class GlobleSetting extends Component<Props, State> {
     }
 
     /**
+    * @name 更改主题
+    * @params { boolean } value 开关绑定的value
+    * @author liuguisheng
+    * @version 2020-09-14 09:57:49 星期一
+    */
+   onlyChangeTheme = (value: boolean) => {
+    this.setState({
+        theme: value ? 'dark' : 'light'
+    });
+}
+
+    /**
     * @name 更改导航的排列模式
     * @params { boolean } value 开关绑定的value
     * @author liuguisheng
@@ -153,11 +165,12 @@ export default class GlobleSetting extends Component<Props, State> {
     createConfigComponent = () => {
         // 生成设置列表并返回配置组件
         return SETTING_ITEM_CONFIG.map((el, index) => {
-            let { title, checkedChildren, unCheckedChildren, event } = el;
+            let { title, checkedChildren, unCheckedChildren, event, defaultValue } = el;
             return <div className="setting-item" key={index}>
                 <span className="label">{title}</span>
                 <Switch checkedChildren={checkedChildren}
                     unCheckedChildren={unCheckedChildren}
+                    defaultChecked={defaultValue}
                     onClick={(e) => (this as any)[event](e)} />
             </div>
         })

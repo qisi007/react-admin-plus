@@ -21,19 +21,29 @@ export const SETTING_ITEM_CONFIG: SettingItem[] = [
         title: '黑暗模式:',
         checkedChildren: '开启',
         unCheckedChildren: '关闭',
-        event: 'changeTheme'
+        event: 'changeTheme',
+        defaultValue: false
+    },
+    {
+        title: '深色菜单:',
+        checkedChildren: '开启',
+        unCheckedChildren: '关闭',
+        event: 'onlyChangeTheme',
+        defaultValue: true
     },
     {
         title: '导航排列:',
         checkedChildren: '垂直',
         unCheckedChildren: '内嵌',
-        event: 'changeMode'
+        event: 'changeMode',
+        defaultValue: false
     },
     {
         title: '导航模式:',
         checkedChildren: '展开',
         unCheckedChildren: '收起',
-        event: 'toggleCollapsed'
+        event: 'toggleCollapsed',
+        defaultValue: false
     }
 ]
 

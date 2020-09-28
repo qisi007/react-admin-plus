@@ -9,7 +9,8 @@ export interface SettingItem {
     title: string,
     checkedChildren: string,
     unCheckedChildren: string,
-    event: string
+    event: string,
+    defaultValue: boolean
 }
 
 // 导航接口

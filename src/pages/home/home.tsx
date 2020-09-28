@@ -29,7 +29,7 @@ interface State {
     mode: string,
     overflowY: string,
     activeKey: string,
-    panes: TabItem[]
+    panes: TabItem[],
 }
 
 @inject('homeStore')
@@ -40,7 +40,7 @@ export default class Home extends Component<Props, State> {
         this.state = {
             collapsed: false,
             background: '#fff',
-            theme: 'light',
+            theme: 'dark',
             mode: 'inline',
             overflowY: 'scroll',
             activeKey: '0',
@@ -59,17 +59,21 @@ export default class Home extends Component<Props, State> {
         let { username } = this.props.location.state || {username: 'admin'}
         let { createNav, clickNavItem, handGlobalSetting, onChange, onEdit  } = this;
         let { background, collapsed, theme, mode, overflowY, panes, activeKey } = this.state;
+        
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
         tabs.length && tabs.forEach( (el:any) =>  el.style.background=background);
-        let color: string = background === '#fff' ? '#5c5c5c' : '#fff';
+        let color: string = theme !== 'dark' ? '#001529' : '#fff';
         let size: string = !collapsed ? 'large' : 'small';
         let flex: string = !collapsed ? '0 0 220px' : '0 0 75px';
+        let leftBack: string = theme === 'dark' ? '#001529' : '#fff';
 
         return (
             <div id='home' style={{ background }}>
                 <div className="left" 
-                     style={{ overflowY: overflowY as any, flex }}>
+                     style={{ overflowY: overflowY as any,
+                              flex,
+                              background: leftBack}}>
                     <LogoBox url={LOGO} 
                             title={'MIS·至哲'} 
                             color={color}
