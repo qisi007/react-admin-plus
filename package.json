@@ -12,7 +12,6 @@
     "fast": "npm run build && npm run deploy"
   },
   "dependencies": {
-    "@antv/g2plot": "^1.1.28",
     "antd": "^4.6.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
@@ -23,6 +22,8 @@
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
+    "echarts": "^4.9.0",
+    "echarts-for-react": "^2.0.16",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
     "gh-pages": "^3.1.0",

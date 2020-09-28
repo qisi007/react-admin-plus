@@ -23,3 +23,12 @@ export interface TabItem {
     content: string,
     key: string
 }
+
+// 图标字体接口
+export interface IconItem {
+    font_class: string,
+    icon_id: string,
+    name: string,
+    unicode: string
+    unicode_decimal: number
+}

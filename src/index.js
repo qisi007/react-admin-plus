@@ -5,6 +5,7 @@ import Store from "./store/index";
 import { Provider } from "mobx-react";
 import 'antd/dist/antd.css';
 import './styles/index.scss';
+import './assets/fonts/font1/iconfont.css';
 
 ReactDOM.render(
   <Provider {...Store}>

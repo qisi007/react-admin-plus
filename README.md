@@ -16,7 +16,8 @@
  - [mobx](https://mobx.js.org/README.html)
  - [sass](https://www.sass.hk/docs/)
  - [gh-pages](https://pages.github.com/)
- - [lodash](https://www.lodashjs.com/)
+ - [echarts](https://echarts.apache.org/zh/index.html)
+ - [echarts-for-react](https://www.npmjs.com/package/echarts-for-react)
 
 <br/>
 

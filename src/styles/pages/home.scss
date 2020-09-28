@@ -3,15 +3,15 @@
     justify-content: space-between;
 
     // 根据屏幕宽度动态计算标签页宽度
-    @for $i from 0 to 15 {
-        @media screen and (max-width: 520px + 100px * $i) and (min-width: 420px + 100px * $i){
-            .ant-tabs {
-                max-width: 80px + 100 * $i;
+    @for $i from 0 to 300 {
+        @media screen and (max-width: 2000px - 5px * $i) and (min-width: 1900px - 5px * $i){
+            .ant-tabs > .ant-tabs-nav {
+                width: 1800px - 5px * $i;
             }
         }
     }
 
-    .meun-box {
+    .left {
         height: 100vh;
         border-right: 1px solid rgb(204, 204, 204);
         &::-webkit-scrollbar {
@@ -19,17 +19,15 @@
           }
     }
 
-    .main {
+    .right {
         width: 100%;
-
         .header-box {
             display: flex;
             justify-content: space-between;
-            
+                       
             .header-box_right {
+                width: 180px;
                 display: flex;
-                width: 165px;
-                margin-top: 10px;
 
                 .user-box {
                     text-align: end;
@@ -69,5 +67,40 @@
     .ant-tabs-top > .ant-tabs-nav::before {
         border-bottom: none;
     }
+
+    // 标签页内容
+    .ant-tabs-content-holder {
+        overflow-y: auto;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        &::-webkit-scrollbar {
+            display: none;
+          }
+    }
 }
+
+
+// 图标字体页面
+.iconfont-page {
+    margin: 20px 0 0 20px;
+    padding-right: 50px;
+
+    .ant-collapse-content-box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .ant-card {
+        width: 130px;
+        margin: 0 10px 10px 0;
+        text-align: center;
+    }
+}
+
+
+
 

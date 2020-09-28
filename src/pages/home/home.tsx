@@ -64,11 +64,12 @@ export default class Home extends Component<Props, State> {
         tabs.length && tabs.forEach( (el:any) =>  el.style.background=background);
         let color: string = background === '#fff' ? '#5c5c5c' : '#fff';
         let size: string = !collapsed ? 'large' : 'small';
-        let width: string = !collapsed ? '300px' : '75px'
+        let flex: string = !collapsed ? '0 0 220px' : '0 0 75px';
+
         return (
             <div id='home' style={{ background }}>
-                <div className="meun-box" 
-                     style={{ overflowY: overflowY as any, width }}>
+                <div className="left" 
+                     style={{ overflowY: overflowY as any, flex }}>
                     <LogoBox url={LOGO} 
                             title={'MIS·至哲'} 
                             color={color}
@@ -80,13 +81,15 @@ export default class Home extends Component<Props, State> {
                         {/* 主页导航 */}
                         <Menu.Item key="index" 
                                    onClick={clickNavItem}>主页</Menu.Item>
+                        <Menu.Item key="iconfont" 
+                                   onClick={clickNavItem}>字体图标</Menu.Item>
                         <Menu.Item key="antv" 
                                    onClick={clickNavItem}>图表</Menu.Item>
                         {/* 其他导航 */}
                         {createNav()}
                     </Menu>
                 </div>
-                <div className="main">
+                <div className="right">
                     <div className="header-box">
                         {/* 顶部标签 */}
                         <Tabs type="editable-card"
@@ -94,6 +97,11 @@ export default class Home extends Component<Props, State> {
                             hideAdd={true}
                             onChange={onChange}
                             onEdit={onEdit}
+                            tabBarExtraContent={{right:<div className="header-box_right">
+                            <div className="user-box">你好！ {username}</div>
+                            <GlobleSetting homeStore={new HomeStore()}
+                                        handGlobalSetting={handGlobalSetting} />
+                        </div>}}
                             activeKey={activeKey}>
                              {panes.map((pane: TabItem) => (
                                 <TabPane tab={pane.title}
@@ -103,13 +111,10 @@ export default class Home extends Component<Props, State> {
                                 </TabPane>))}
                         </Tabs>
                         {/* 右侧个人信息 */}
-                        <div className="header-box_right">
-                            <div className="user-box">你好！ {username}</div>
-                            <GlobleSetting homeStore={new HomeStore()}
-                                           handGlobalSetting={handGlobalSetting} />
-                        </div>
+                        
+                        
                     </div>
-                    <div className="line"></div>
+                    {/* <div className="line"></div> */}
                 </div>
             </div>
         )
