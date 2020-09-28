@@ -63,7 +63,8 @@ export default class Home extends Component<Props, State> {
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
         tabs.length && tabs.forEach( (el:any) =>  el.style.background=background);
-        let color: string = theme !== 'dark' ? '#001529' : '#fff';
+        let logoColor: string = theme !== 'dark' ? '#001529' : '#fff';
+        let color: string = theme === 'dark' ? '#001529' : '#fff';
         let size: string = !collapsed ? 'large' : 'small';
         let flex: string = !collapsed ? '0 0 220px' : '0 0 75px';
         let leftBack: string = theme === 'dark' ? '#001529' : '#fff';
@@ -76,7 +77,7 @@ export default class Home extends Component<Props, State> {
                               background: leftBack}}>
                     <LogoBox url={LOGO} 
                             title={'MIS·至哲'} 
-                            color={color}
+                            color={ logoColor }
                             size={size} ></LogoBox>
                     <Menu theme={theme as any}
                         mode={mode as any}
