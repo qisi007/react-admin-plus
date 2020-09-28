@@ -64,24 +64,25 @@ export default class Home extends Component<Props, State> {
         let tabs = document.querySelectorAll('.ant-tabs-tab');
         tabs.length && tabs.forEach( (el:any) =>  el.style.background=background);
         let logoColor: string = theme !== 'dark' ? '#001529' : '#fff';
-        let color: string = theme === 'dark' ? '#001529' : '#fff';
+        let color: string = background === '#fff' ? '#001529' : '#fff';
         let size: string = !collapsed ? 'large' : 'small';
-        let flex: string = !collapsed ? '0 0 220px' : '0 0 75px';
+        let flex: string = !collapsed ? '0 0 240px' : '0 0 75px';
         let leftBack: string = theme === 'dark' ? '#001529' : '#fff';
 
         return (
             <div id='home' style={{ background }}>
                 <div className="left" 
-                     style={{ overflowY: overflowY as any,
-                              flex,
+                     style={{ flex,
                               background: leftBack}}>
-                    <LogoBox url={LOGO} 
+                        <LogoBox url={LOGO} 
                             title={'MIS·至哲'} 
                             color={ logoColor }
-                            size={size} ></LogoBox>
+                            size={size} 
+                            back={leftBack}></LogoBox>
                     <Menu theme={theme as any}
                         mode={mode as any}
                         inlineCollapsed={collapsed}
+                        className="meun-box"
                         defaultSelectedKeys={['index']}>
                         {/* 主页导航 */}
                         <Menu.Item key="index" 

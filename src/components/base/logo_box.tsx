@@ -11,6 +11,7 @@ interface Props {
     title: string
     color: string
     size: string
+    back: string
 }
 
 interface State {
@@ -19,7 +20,7 @@ interface State {
 
 export default class LogoBox extends Component<Props, State> {
     render () {
-        let { url, title, color, size } = this.props;
+        let { url, title, color, size, back } = this.props;
         // 样式计算
         let transform: string = size === 'large' ? 'scale(1)' : 'scale(0.5)'
         return (
@@ -27,7 +28,7 @@ export default class LogoBox extends Component<Props, State> {
                target="_blank" 
                rel="noopener noreferrer">
                 <div id="logo-box" 
-                 style={{transform}}>
+                 style={{transform, backgroundColor: back}}>
                 <img src={url} alt=""/>
                 <span style={{color}}>{title}</span>
             </div>

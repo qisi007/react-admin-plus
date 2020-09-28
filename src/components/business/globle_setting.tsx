@@ -113,7 +113,7 @@ export default class GlobleSetting extends Component<Props, State> {
     toggleCollapsed = (value: boolean) => {
         this.setState({
             collapsed: value,
-            overflowY: !value ? 'scroll' : 'auto'
+            // overflowY: !value ? 'scroll' : 'auto'
         });
     }
 
