@@ -18,7 +18,7 @@ import {
 // 设置组件配置
 export const SETTING_ITEM_CONFIG: SettingItem[] = [
     {
-        title: '黑暗模式:',
+        title: '全局黑暗模式:',
         checkedChildren: '开启',
         unCheckedChildren: '关闭',
         event: 'changeTheme',
@@ -32,16 +32,16 @@ export const SETTING_ITEM_CONFIG: SettingItem[] = [
         defaultValue: true
     },
     {
-        title: '导航排列:',
+        title: '导航排列方式:',
         checkedChildren: '垂直',
         unCheckedChildren: '内嵌',
         event: 'changeMode',
         defaultValue: false
     },
     {
-        title: '导航模式:',
-        checkedChildren: '展开',
-        unCheckedChildren: '收起',
+        title: '导航是否展开:',
+        checkedChildren: '是',
+        unCheckedChildren: '否',
         event: 'toggleCollapsed',
         defaultValue: false
     }

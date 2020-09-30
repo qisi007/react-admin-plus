@@ -14,7 +14,6 @@
     .left {
         height: 100vh;
         border-right: 1px solid rgb(204, 204, 204);
-        padding-left: 20px;
         overflow-y: scroll;
         box-sizing: border-box;
 
@@ -26,6 +25,12 @@
 
     .right {
         width: 100%;
+        height: 100vh;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .header-box {
             display: flex;
             justify-content: space-between;
@@ -52,6 +57,15 @@
 
 
         }
+
+        .ant-tabs-nav {
+            position: fixed;
+            z-index: 999;
+        }
+
+        .ant-tabs-content-holder {
+            margin-top: 50px;
+        }
     }
 
     // 标签页样式修改
@@ -73,19 +87,6 @@
         border-bottom: none;
     }
 
-    // 标签页内容
-    .ant-tabs-content-holder {
-        overflow-y: auto;
-        position: relative;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-
-        &::-webkit-scrollbar {
-            display: none;
-          }
-    }
 }
 
 

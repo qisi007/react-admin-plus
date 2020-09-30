@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Modal, Button, Switch, Tooltip } from 'antd';
 import { SETTING_ITEM_CONFIG } from '../../config/home_config';
-import HomeStore from "../../store/home";
+import GlobalConfigStore from "../../store/global_config";
 import { observer, inject } from "mobx-react";
 import { SettingOutlined } from "@ant-design/icons";
 
 interface Props {
-    homeStore: HomeStore,
+    globalConfigStore: GlobalConfigStore,
     handGlobalSetting: Function
 }
 

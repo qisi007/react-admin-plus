@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import HomeStore from "../../store/home";
+import GlobalConfigStore from "../../store/global_config";
 import { Menu, Tabs } from "antd";
 import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
@@ -19,6 +20,7 @@ const { TabPane } = Tabs;
 interface Props {
     homeStore: HomeStore
     location: any
+    globalConfigStore: GlobalConfigStore
 }
 
 // state接口
@@ -33,6 +35,7 @@ interface State {
 }
 
 @inject('homeStore')
+@inject('globalConfigStore')
 @observer
 export default class Home extends Component<Props, State> {
     constructor(props: Props) {
@@ -58,7 +61,7 @@ export default class Home extends Component<Props, State> {
     render = () => {
         let { username } = this.props.location.state || {username: 'admin'}
         let { createNav, clickNavItem, handGlobalSetting, onChange, onEdit  } = this;
-        let { background, collapsed, theme, mode, overflowY, panes, activeKey } = this.state;
+        let { background, collapsed, theme, mode, panes, activeKey } = this.state;
         
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
@@ -103,11 +106,11 @@ export default class Home extends Component<Props, State> {
                             hideAdd={true}
                             onChange={onChange}
                             onEdit={onEdit}
-                            tabBarExtraContent={{right:<div className="header-box_right">
-                            <div className="user-box">你好！ {username}</div>
-                            <GlobleSetting homeStore={new HomeStore()}
-                                        handGlobalSetting={handGlobalSetting} />
-                        </div>}}
+                            tabBarExtraContent={{right: <div className="header-box_right">
+                                                            <div className="user-box">你好！ {username}</div>
+                                                            <GlobleSetting globalConfigStore={new GlobalConfigStore()}
+                                                                        handGlobalSetting={handGlobalSetting} />
+                                                        </div>}}
                             activeKey={activeKey}>
                              {panes.map((pane: TabItem) => (
                                 <TabPane tab={pane.title}
