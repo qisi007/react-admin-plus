@@ -7,7 +7,7 @@ import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
 import { NavItem, TabItem } from "../../interface/home_interface";
 import LogoBox from "../../components/base/logo_box";
-import { INITIAL_PANES } from "../../config/home_config";
+import { INITIAL_PANES, MENU_LIST } from "../../config/home_config";
 import { componentFactory } from "./component_factory";
 const LOGO: string = require("../../assets/images/logo.png");
  
@@ -88,12 +88,12 @@ export default class Home extends Component<Props, State> {
                         className="meun-box"
                         defaultSelectedKeys={['index']}>
                         {/* 主页导航 */}
-                        <Menu.Item key="index" 
-                                   onClick={clickNavItem}>主页</Menu.Item>
-                        <Menu.Item key="iconfont" 
-                                   onClick={clickNavItem}>字体图标</Menu.Item>
-                        <Menu.Item key="antv" 
-                                   onClick={clickNavItem}>图表</Menu.Item>
+                        {
+                            MENU_LIST.map((el) => {
+                                return <Menu.Item key={el.key} 
+                                           onClick={() => clickNavItem(el)}>{el.name}</Menu.Item>
+                            })
+                        }
                         {/* 其他导航 */}
                         {createNav()}
                     </Menu>
@@ -159,7 +159,7 @@ export default class Home extends Component<Props, State> {
                                 title={el.name}>{createNavItem(el.children)}</SubMenu>
             } else {
                 return <Menu.Item key={el.code}
-                                  onClick={clickNavItem}>{el.name}</Menu.Item>
+                                  onClick={() => clickNavItem(el)}>{el.name}</Menu.Item>
             }
         })
     }
@@ -172,14 +172,14 @@ export default class Home extends Component<Props, State> {
     */
     clickNavItem = (navItem: NavItem) => {
         // 找到标题
-        let title: string = navItem.item.props.children[1];
+        let { name } = navItem;
         // 生成随机key
         let key: string = Math.random().toString();
-        // 判断是否添加过标签，添加过就不在添加并且激活的key为之前的key
-        let hasTitle = INITIAL_PANES.find(el => el.title === title );
+        // // 判断是否添加过标签，添加过就不在添加并且激活的key为之前的key
+        let hasTitle = INITIAL_PANES.find(el => el.title === name );
         let activeKey: string = hasTitle === undefined ? key : hasTitle.key;
-        hasTitle === undefined && INITIAL_PANES.push({title, content: title, key });
-        // 更新状态
+        hasTitle === undefined && INITIAL_PANES.push({title: name, content: name, key });
+        // // 更新状态
         this.setState({ panes: INITIAL_PANES, activeKey });
     }
 

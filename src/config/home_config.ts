@@ -5,7 +5,7 @@
 */
 
 
-import { SettingItem } from "../interface/home_interface";
+import { SettingItem, NavItem } from "../interface/home_interface";
 import {
     AppstoreOutlined,
     PieChartOutlined,
@@ -60,3 +60,19 @@ export const  ICON_LIST_CONFIG =  {
 export const INITIAL_PANES: any[] = [
     {title: "主页", content: "主页", key: "0"}
 ];
+
+// 导航配置
+export const MENU_LIST: NavItem[] = [
+    {
+        name: '主页',
+        key: 'index'
+    },
+    {
+        name: '字体图标',
+        key: 'iconfont'
+    },
+    {
+        name: '图表',
+        key: 'echarts'
+    }
+]
