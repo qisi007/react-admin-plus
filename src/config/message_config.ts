@@ -7,5 +7,8 @@
 export const MESSAGE_CONFIG = {
     logoSuccess: '登录成功！',
     passwordEmpty: '请输入密码！',
-    usernameEmpty: '请输入账号！'
+    usernameEmpty: '请输入账号！',
+    getStorageError: '读取数据失败!',
+    setStorageError: '存入数据失败!',
+    removeStorageError: '删除数据失败!'
 }

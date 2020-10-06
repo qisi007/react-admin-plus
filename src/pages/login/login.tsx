@@ -3,6 +3,7 @@ import { observer, inject } from "mobx-react";
 import { Form, Input, Button, message } from 'antd';
 import { loginForm } from '../../interface/login_interface';
 import { MESSAGE_CONFIG } from '../../config/message_config';
+import { StorageMethods } from '../../utils/storage_utils';
 
 // prop接口
 interface Prop {
@@ -82,7 +83,9 @@ export default class Login extends Component<Prop, State> {
     * @version 2020-09-15 17:54:29 星期二
     */
     onFinish = (form: loginForm) => {
-        // 消息提示
+        let { username } = form;
+        // 将用户姓名存入localStorageb并提示登录成功
+        new StorageMethods().set('username', username);
         message.success(MESSAGE_CONFIG.logoSuccess);
         // 跳转到home页
         this.props.history.push({ pathname: '/home', state: form })

@@ -9,6 +9,9 @@ import { NavItem, TabItem } from "../../interface/home_interface";
 import LogoBox from "../../components/base/logo_box";
 import { INITIAL_PANES, MENU_LIST } from "../../config/home_config";
 import { componentFactory } from "./component_factory";
+import { StorageMethods } from '../../utils/storage_utils';
+
+
 const LOGO: string = require("../../assets/images/logo.png");
  
 // 引入子导航
@@ -32,6 +35,7 @@ interface State {
     overflowY: string,
     activeKey: string,
     panes: TabItem[],
+    username: string
 }
 
 @inject('homeStore')
@@ -48,7 +52,13 @@ export default class Home extends Component<Props, State> {
             overflowY: 'scroll',
             activeKey: '0',
             panes: INITIAL_PANES,
+            username: 'admin'
         }
+    }
+    componentDidMount = () => {
+        let username: string = new StorageMethods().get('username');
+        this.setState({username})
+
     }
     componentDidUpdate = () => {
         // 更改激活标签页样式
@@ -59,9 +69,8 @@ export default class Home extends Component<Props, State> {
         } 
     }
     render = () => {
-        let { username } = this.props.location.state || {username: 'admin'}
-        let { createNav, clickNavItem, handGlobalSetting, onChange, onEdit  } = this;
-        let { background, collapsed, theme, mode, panes, activeKey } = this.state;
+        let { createMenu, clickMenuItem, handGlobalSetting, onChange, onEdit  } = this;
+        let { background, collapsed, theme, mode, panes, activeKey, username } = this.state;
         
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
@@ -78,7 +87,7 @@ export default class Home extends Component<Props, State> {
                      style={{ flex,
                               background: leftBack}}>
                         <LogoBox url={LOGO} 
-                            title={'MIS·至哲'} 
+                            title={'React-Admin-Plus'} 
                             color={ logoColor }
                             size={size} 
                             back={leftBack}></LogoBox>
@@ -89,13 +98,14 @@ export default class Home extends Component<Props, State> {
                         defaultSelectedKeys={['index']}>
                         {/* 主页导航 */}
                         {
-                            MENU_LIST.map((el) => {
-                                return <Menu.Item key={el.key} 
-                                           onClick={() => clickNavItem(el)}>{el.name}</Menu.Item>
+                            MENU_LIST.map((el:NavItem) => {
+                                let { key, name } = el;
+                                return <Menu.Item key={key} 
+                                           onClick={() => clickMenuItem(el)}>{name}</Menu.Item>
                             })
                         }
-                        {/* 其他导航 */}
-                        {createNav()}
+                        {/* 树状导航 */}
+                        {createMenu()}
                     </Menu>
                 </div>
                 <div className="right">
@@ -135,7 +145,7 @@ export default class Home extends Component<Props, State> {
     * @author liuguisheng
     * @version 2020-09-14 11:11:17 星期一
     */
-    createNav = () => {
+   createMenu = () => {
         // 获取导航树
         let NavList = HomeService.getFirstNameList();
         let { createNavItem } = this;
@@ -151,7 +161,7 @@ export default class Home extends Component<Props, State> {
     * @version 2020-09-14 14:45:55 星期一
     */
     createNavItem = (NavList: NavItem) => {
-        let { clickNavItem, createNavItem } = this;
+        let { clickMenuItem, createNavItem } = this;
         // 递归创建导航
         return NavList.map((el: NavItem) => {
             if (el.children && el.children.length && Object.keys(el.children[0]).length) {
@@ -159,7 +169,7 @@ export default class Home extends Component<Props, State> {
                                 title={el.name}>{createNavItem(el.children)}</SubMenu>
             } else {
                 return <Menu.Item key={el.code}
-                                  onClick={() => clickNavItem(el)}>{el.name}</Menu.Item>
+                                  onClick={() => clickMenuItem(el)}>{el.name}</Menu.Item>
             }
         })
     }
@@ -170,7 +180,7 @@ export default class Home extends Component<Props, State> {
     * @author liuguisheng
     * @version 2020-09-14 14:49:56 星期一
     */
-    clickNavItem = (navItem: NavItem) => {
+    clickMenuItem = (navItem: NavItem) => {
         // 找到标题
         let { name } = navItem;
         // 生成随机key
