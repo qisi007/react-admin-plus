@@ -14,7 +14,7 @@ echo master代码合并完毕，正在提交本地分支代码...
 
 git add .
 
-git commit -m "fix: menu"
+git commit -m "add: skeleton"
 
 echo 当前版本号: $branch
 

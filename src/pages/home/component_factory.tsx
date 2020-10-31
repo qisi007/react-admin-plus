@@ -15,13 +15,15 @@ import indexPage from "./child/index_page";
 import echartsPage from "./child/echarts_page";
 import iconfontPage from "./child/iconfont.page";
 import tablePage from "./child/table_page";
+import skeleton from "./child/skeleton_page";
 
 // 页面注册(目前是按照标题对应页面，后期按照页面的唯一标识对应)
 const components:{[prop: string]: any} = {
     '主页': indexPage,
     '图表': echartsPage,
     '字体图标': iconfontPage,
-    '表格': tablePage
+    '表格': tablePage,
+    '骨架屏': skeleton
 }
 
 // 渲染页面
