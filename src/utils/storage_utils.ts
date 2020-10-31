@@ -32,4 +32,12 @@ export class StorageMethods {
             console.error(MESSAGE_CONFIG.removeStorageError);
         }
     }
+
+    clear () {
+        try {
+            localStorage.clear();
+        } catch {
+            console.error(MESSAGE_CONFIG.clearStorageError);
+        }
+    }
 }

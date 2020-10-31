@@ -64,8 +64,21 @@ export default class Home extends Component<Props, State> {
         // 更改激活标签页样式
         let { background } = this.state;
         let activeTab = document.querySelector('.ant-tabs-tab-active');
+        let antTabsNavWrap = document.querySelector('.ant-tabs-nav');
+
+
+        let antTabsTas = document.querySelectorAll('.ant-tabs-tab');
+
         if (activeTab) {
             (activeTab as any).style.background = background;
+            (antTabsNavWrap as any).style.background = background;
+            (antTabsTas as any).forEach(( el: any) =>{
+                if ( background === "#fff") {
+                    el.style.border=`1px solid #f0f0f0`;
+                } else {
+                    el.style.border=`1px solid ${background}`;
+                }
+            })
         } 
     }
     render = () => {
@@ -129,9 +142,6 @@ export default class Home extends Component<Props, State> {
                                     {componentFactory(pane)}
                                 </TabPane>))}
                         </Tabs>
-                        {/* 右侧个人信息 */}
-                        
-                        
                     </div>
                     {/* <div className="line"></div> */}
                 </div>

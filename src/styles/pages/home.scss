@@ -38,6 +38,7 @@
             .header-box_right {
                 width: 180px;
                 display: flex;
+                margin-top: 5px;
 
                 .user-box {
                     text-align: end;
@@ -61,16 +62,13 @@
         .ant-tabs-nav {
             position: fixed;
             z-index: 999;
+            border-bottom: 1px solid #ccc;
+            height: 40px;
         }
 
         .ant-tabs-content-holder {
             margin-top: 50px;
         }
-    }
-
-    // 标签页样式修改
-    .ant-tabs-tab  {
-        border: none !important;
     }
 
     .anticon-close {

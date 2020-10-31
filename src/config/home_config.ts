@@ -74,5 +74,9 @@ export const MENU_LIST: NavItem[] = [
     {
         name: '图表',
         key: 'echarts'
+    },
+    {
+        name: '表格',
+        key: 'table'
     }
 ]
