@@ -6,24 +6,18 @@
 
 
 import { SettingItem, NavItem } from "../interface/home_interface";
-import {
-    AppstoreOutlined,
-    PieChartOutlined,
-    DesktopOutlined,
-    ContainerOutlined,
-    MailOutlined
-} from '@ant-design/icons';
+
 
 
 // 设置组件配置
 export const SETTING_ITEM_CONFIG: SettingItem[] = [
-    {
-        title: '全局黑暗模式:',
-        checkedChildren: '开启',
-        unCheckedChildren: '关闭',
-        event: 'changeTheme',
-        defaultValue: false
-    },
+    // {
+    //     title: '全局黑暗模式:',
+    //     checkedChildren: '开启',
+    //     unCheckedChildren: '关闭',
+    //     event: 'changeTheme',
+    //     defaultValue: false
+    // },
     {
         title: '深色菜单:',
         checkedChildren: '开启',
@@ -47,14 +41,7 @@ export const SETTING_ITEM_CONFIG: SettingItem[] = [
     }
 ]
 
-// icon配置文件
-export const  ICON_LIST_CONFIG =  {
-    AppstoreOutlined,
-    PieChartOutlined,
-    DesktopOutlined,
-    ContainerOutlined,
-    MailOutlined
-}
+
 
 // 标签页默认配置
 export const INITIAL_PANES: any[] = [

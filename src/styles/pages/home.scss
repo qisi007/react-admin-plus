@@ -92,35 +92,89 @@
 .iconfont-page {
     margin: 20px 0 0 20px;
     padding-right: 50px;
-
-    .ant-collapse-content-box {
-        display: flex;
-        flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    .ant-card {
+        margin: 20px;
+        width: 150px;
+        height: 180px;
+        text-align: center;
     }
 
-    .ant-card {
-        width: 150px;
-        margin: 0 10px 10px 0;
-        text-align: center;
-        color: #5c5c5c;
-
-
-        .ant-card-body {
-            padding: 0;
-        }
-
-        .icon-box {
+    .icon-box {
+        transition: all .3s;
+        padding: 24px;
+        
+        &:hover {
+            color: #1fb19e;
+            transform: scale(1.2) rotate(360deg);
             transition: all .3s;
-            padding: 24px;
-            
-            &:hover {
-                color: #1fb19e;
-                transform: scale(1.2) rotate(360deg);
-                transition: all .3s;
-            }
         }
     }
 }
+
+.index-page {
+    .top_message {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        height: 300px;
+
+        .tips {
+            color: #4c4c4c;
+            margin-left: 20px;
+            border-right: 1px solid #dbd8d8;
+            padding-right: 50px;
+            padding-top: 10px;
+            height: 160px;
+
+            .first {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .second, .third {
+                font-size: 16px;
+            }
+        }
+
+        .water {
+            flex-basis: 270px;
+            margin: 0 80px;
+            width: 270px;
+            height: 150px;
+            transition: all 0.5s;
+
+            &:hover {
+                box-shadow: 0 0 20px #ccc;
+                transform: scale(1.2);
+                transition: all 0.5s;
+            }
+            .content {
+                padding: 20px 0;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+               
+                .iconfont {
+                    font-size: 60px;
+                    color: rgb(82, 76, 76);
+                    margin-left: 40px;
+                }
+
+                .number {
+                    font-size: 30px;
+                    margin-left: 30px;
+                    color: #4c4c4c;
+                }
+            }
+
+        }
+    }
+}
+
+
 
 
 

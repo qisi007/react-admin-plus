@@ -13,7 +13,7 @@ import { TabItem } from "../../interface/home_interface";
 import framePage from "./child/frame_page";
 import indexPage from "./child/index_page";
 import echartsPage from "./child/echarts_page";
-import iconfontPage from "./child/iconfont.page";
+import iconfontPage from "./child/iconfont_page";
 import tablePage from "./child/table_page";
 import skeleton from "./child/skeleton_page";
 
@@ -26,7 +26,7 @@ const components:{[prop: string]: any} = {
     '骨架屏': skeleton
 }
 
-// 渲染页面
+// 组件渲染工厂
 export const componentFactory = ( config: TabItem ) => {
     let { title } = config;
     const Component = components[title];

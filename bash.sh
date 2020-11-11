@@ -1,7 +1,14 @@
+git add .
+
+git commit -m "add: skeleton"
+
 git pull origin master
 
 git merge master
 
+echo 代码合并完毕,正在推送到远程仓库
+
+sleep 1s
 
 function obtain_git_branch {
   br=`git branch | grep "*"`
@@ -9,21 +16,17 @@ function obtain_git_branch {
 }
 branch=`obtain_git_branch`
 
+echo 当前分支: $branch
 
-echo master代码合并完毕，正在提交本地分支代码...
-
-git add .
-
-git commit -m "add: skeleton"
-
-echo 当前版本号: $branch
+sleep 2s
 
 git push --set-upstream origin $branch
 
-sleep 1s
-
 echo 代码已推送到远程分支
 
-npm run deploy
+sleep 1s
+
+
+npm run fast
 
 echo 已构建完成

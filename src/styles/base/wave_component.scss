@@ -1,0 +1,45 @@
+.water {  
+    position: relative;  
+    width: 200px;  
+    height: 200px;  
+    border-radius: 20px;
+    overflow: hidden;
+
+    .box {
+        color: #000;
+        z-index: 999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        word-break: break-all;
+        padding: 5px;
+    }
+}  
+.water:before,.water:after{  
+       content: "";  
+       position: absolute;  
+       width: 400px;  
+       height: 400px;  
+       top: 0;  
+       left: 50%;  
+       background-color: rgba(255, 255, 255, .4); 
+       border-radius: 45%;  
+       transform: translate(-50%, -80%) rotate(0);  
+       animation: rotate 6s linear infinite;  
+}  
+       
+.water:after {  
+       border-radius: 47%;  
+       background-color: rgba(255, 255, 255, .9);  
+       transform: translate(-50%, -80%) rotate(0);  
+       animation: rotate 10s linear -5s infinite;  
+}  
+
+@keyframes rotate {  
+    50% {  
+        transform: translate(-50%, -80%) rotate(180deg);  
+    } 100% {  
+        transform: translate(-50%, -80%) rotate(360deg);  
+    }  
+}  
+

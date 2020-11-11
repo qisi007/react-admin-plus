@@ -24,7 +24,7 @@ export default class Login extends Component<Prop, State> {
         super(prop);
         this.state = {
             loading: false,
-            backgroundColor: '#2124827'
+            backgroundColor: '#516D8B'
         }
     }
 
@@ -49,7 +49,9 @@ export default class Login extends Component<Prop, State> {
                     name="basic"
                     className="form"
                     size="large"
-                    onFinish={onFinish}>
+                    onFinish={onFinish}
+                    style={{fontSize: "20px"}}>
+                    
 
                     <Form.Item
                         label="账号"
