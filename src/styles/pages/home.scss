@@ -114,6 +114,8 @@
 }
 
 .index-page {
+    padding-bottom: 20px;
+
     .top_message {
         display: flex;
         flex-wrap: wrap;
@@ -169,8 +171,19 @@
                     color: #4c4c4c;
                 }
             }
-
         }
+    }
+
+    .todo-list-body {
+        margin-left: 70%;
+        width: 400px;
+        height: 700px;
+        overflow: auto;
+        border: 1px solid #e4e3e3;
+        border-radius: 10px;
+        padding: 80px 20px;
+        background: url(../../assets/images/note.jpg) no-repeat;
+        background-size: 100%;
     }
 }
 

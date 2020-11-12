@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import WaveComponent from "../../../components/base/wave_component";
 import { StorageMethods } from "../../../utils/storage_utils";
+import TodoList from "../../../components/business/todo_list";
 
 const WEEK_CONFIG = ["星期一", "星期二","星期三","星期四","星期五","星期六","星期日"];
 const CHEERS = [
@@ -74,6 +75,10 @@ export default class IndexPage extends Component<Props, State> {
                             <span className="number">23865</span>
                         </div>
                     </WaveComponent>
+                </div>
+
+                <div className="todo-list-body">
+                    <TodoList></TodoList>
                 </div>
             </div>
         )

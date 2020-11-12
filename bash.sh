@@ -1,6 +1,6 @@
 git add .
 
-git commit -m "add: skeleton"
+git commit -m "add: todoList"
 
 git pull origin master
 
