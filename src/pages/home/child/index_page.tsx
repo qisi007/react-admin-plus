@@ -46,9 +46,9 @@ export default class IndexPage extends Component<Props, State> {
 
 
         return <div className="tips">
-            <p className="first">{amOrPm}, {name}!</p>
-            <p className="second">今天是{time}, {week}</p>
-            <p className="third">{tips}</p>
+            <div className="first">{amOrPm}, {name}!</div>
+            <div className="second">今天是{time}, {week}</div>
+            <div className="third">{tips}</div>
         </div>
     }
 
