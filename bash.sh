@@ -1,6 +1,6 @@
 git add .
 
-git commit -m "add: todoList"
+git commit -m "add: sall echart"
 
 git pull origin master
 

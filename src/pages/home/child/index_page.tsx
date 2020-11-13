@@ -6,6 +6,8 @@ import React, { Component } from "react";
 import WaveComponent from "../../../components/base/wave_component";
 import { StorageMethods } from "../../../utils/storage_utils";
 import TodoList from "../../../components/business/todo_list";
+import SallAction from "../../../components/business/sall_action";
+import SallEchart from "../../../components/business/sall_echart";
 
 const WEEK_CONFIG = ["星期一", "星期二","星期三","星期四","星期五","星期六","星期日"];
 const CHEERS = [
@@ -56,29 +58,36 @@ export default class IndexPage extends Component<Props, State> {
             <div className="index-page">
                 <div className="top_message">
                     {this.countTodayTips()}
-                    <WaveComponent background="#859CB5">
-                        <div className="content">
+                    <WaveComponent background="#859CB5" >
+                        <div className="content" title="通知">
                             <i className="iconfont icon-xiaoxizhongxin"></i>
                             <span className="number">14278</span>
                         </div>
                     
                     </WaveComponent>
                     <WaveComponent background="#E4D8C4">
-                        <div className="content">
+                        <div className="content"  title="消息">
                             <i className="iconfont icon-pinglun1"></i>
                             <span className="number">87432</span>
                         </div>
                     </WaveComponent>
                     <WaveComponent background="#AAD0D3">
-                        <div className="content">
+                        <div className="content"  title="交易额">
                             <i className="iconfont icon-yulebao"></i>
                             <span className="number">23865</span>
                         </div>
                     </WaveComponent>
                 </div>
-
-                <div className="todo-list-body">
-                    <TodoList></TodoList>
+                <div className="main-body">
+                    <div className="sall-action-body">
+                        <SallAction></SallAction>
+                    </div>
+                    <div className="sall-echart">
+                        <SallEchart></SallEchart>
+                    </div>
+                    <div className="todo-list-body">
+                        <TodoList></TodoList>
+                    </div>
                 </div>
             </div>
         )

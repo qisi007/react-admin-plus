@@ -115,35 +115,37 @@
 
 .index-page {
     padding-bottom: 20px;
+    width: 1630px;
+
 
     .top_message {
         display: flex;
-        flex-wrap: wrap;
         margin-top: 20px;
-        height: 300px;
+        height: 200px;
 
         .tips {
             color: #4c4c4c;
-            margin-left: 20px;
+            margin-left: 30px;
             border-right: 1px solid #dbd8d8;
             padding-right: 50px;
-            padding-top: 10px;
+            padding-top: 20px;
             height: 160px;
 
             .first {
                 font-size: 20px;
                 font-weight: 600;
+                height: 30px;
             }
 
             .second, .third {
                 font-size: 16px;
+                height: 20px;
             }
         }
 
         .water {
-            flex-basis: 270px;
-            margin: 0 80px;
-            width: 270px;
+            margin-left: 50px;
+            width: 350px;
             height: 150px;
             transition: all 0.5s;
 
@@ -166,7 +168,7 @@
                 }
 
                 .number {
-                    font-size: 30px;
+                    font-size: 40px;
                     margin-left: 30px;
                     color: #4c4c4c;
                 }
@@ -174,17 +176,28 @@
         }
     }
 
-    .todo-list-body {
-        margin-left: 70%;
-        width: 400px;
-        height: 700px;
-        overflow: auto;
-        border: 1px solid #e4e3e3;
-        border-radius: 10px;
-        padding: 80px 20px;
-        background: url(../../assets/images/note.jpg) no-repeat;
-        background-size: 100%;
+    .main-body {
+        display: flex;
+        justify-content: space-between;
+
+        .sall-action-body {
+            min-width: 300px;
+            margin-left: 30px;
+        }
+    
+        .todo-list-body {
+            width: 400px;
+            height: 700px;
+            overflow: auto;
+            border: 1px solid #e4e3e3;
+            border-radius: 10px;
+            padding: 80px 20px;
+            background: url(../../assets/images/note.jpg) no-repeat;
+            background-size: 100%;
+        }
     }
+
+    
 }
 
 

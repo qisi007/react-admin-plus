@@ -1,0 +1,28 @@
+.sall-action {
+    position: relative; 
+
+    .title {
+        height: 60px;
+        font-size: 30px;
+        width: 100%;
+       
+    }
+
+    .sall-action_content {
+        height: 650px;
+        overflow: hidden;
+
+        .sall-action_list {
+            transition: all .5s;
+    
+            .sall-action_list_item {
+                font-size: 16px;
+                line-height: 40px;
+                color: #4c4c4c;
+            }
+        }
+    }
+    
+   
+    
+}
