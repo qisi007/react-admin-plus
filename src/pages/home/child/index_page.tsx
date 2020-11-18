@@ -8,6 +8,7 @@ import { StorageMethods } from "../../../utils/storage_utils";
 import TodoList from "../../../components/business/todo_list";
 import SallAction from "../../../components/business/sall_action";
 import SallEchart from "../../../components/business/sall_echart";
+import QuickEntry from "../../../components/business/quick_entry";
 
 const WEEK_CONFIG = ["星期一", "星期二","星期三","星期四","星期五","星期六","星期日"];
 const CHEERS = [
@@ -77,6 +78,9 @@ export default class IndexPage extends Component<Props, State> {
                             <span className="number">23865</span>
                         </div>
                     </WaveComponent>
+                </div>
+                <div>
+                    <QuickEntry></QuickEntry>
                 </div>
                 <div className="main-body">
                     <div className="sall-action-body">

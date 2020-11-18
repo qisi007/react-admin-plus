@@ -1,9 +1,7 @@
 .todo-list {
     color: #5c5c5c;
     .title {
-        font-size: 30px;
-        font-weight: 600;
-        color: #4c4c4c;
+        @include  h1-font
     }
 
     .title_second {

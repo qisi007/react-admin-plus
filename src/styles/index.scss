@@ -1,3 +1,6 @@
+
+@import "./common/var.scss";
+@import "./common/mixin.scss";
 @import "./common/reset.scss";
 @import "./common/common.scss";
 @import "./base/logo_box.scss";
@@ -5,6 +8,7 @@
 @import "./business/globle_setting.scss";
 @import "./business/todo_list.scss";
 @import "./business/sall_action.scss";
+@import "./business/quick_entry.scss";
 @import "./pages/home.scss";
 @import "./pages/login.scss";
 

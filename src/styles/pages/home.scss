@@ -114,13 +114,12 @@
 }
 
 .index-page {
-    padding-bottom: 20px;
     width: 1630px;
-
+    padding-bottom: 50px;
 
     .top_message {
         display: flex;
-        margin-top: 20px;
+        margin-top: 30px;
         height: 200px;
 
         .tips {
@@ -186,8 +185,8 @@
         }
     
         .todo-list-body {
-            width: 400px;
-            height: 700px;
+            width: 450px;
+            height: 750px;
             overflow: auto;
             border: 1px solid #e4e3e3;
             border-radius: 10px;

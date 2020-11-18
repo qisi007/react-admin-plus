@@ -1,0 +1,7 @@
+@import "./var.scss";
+
+@mixin h1-font {
+    font-size: 30px;
+    font-weight: 600;
+    color: $--word-color_default;  
+} 

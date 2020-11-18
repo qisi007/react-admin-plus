@@ -1,0 +1,59 @@
+$steelBlue: red;
+$landingNavBlue: blue; 
+$landingNavGreyBlue: yellow;
+
+/*Step 2: Add the colors to a list*/
+$list: $steelBlue, $landingNavBlue, $landingNavGreyBlue;
+
+@mixin  icon-color {
+    $random-color: random(length($list));
+
+    color: nth($list, $random-color);
+}
+
+
+
+.quick-entry {
+    padding: 0 30px;
+    margin: 20px 0 50px 0;
+    h1 {
+        @include  h1-font
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 20px;
+
+        li {
+            padding: 20px 60px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all .2s;
+
+            &:hover {
+                box-shadow: 0 0 20px #E0E3DE;
+                transform: translateY(-5px);
+                transition: all .2s;
+            }
+
+            .iconfont {
+                font-size: 40px;
+            }
+
+            .words {
+                color: $--word-color_default;
+                font-size: 16px;
+            }
+        }
+        $colors: #738AA3, #445970, #9D70A3, #9412A6, #26713B, #933558, #A77555, #7B8273;
+
+        @for $i from 1 through length($colors) {
+            li:nth-child(#{length($colors)}n+#{$i}) {
+                color: lighten(nth($colors, $i), 20%);
+            }
+        }
+
+    }
+}

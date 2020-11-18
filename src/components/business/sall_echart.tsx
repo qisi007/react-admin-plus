@@ -76,7 +76,7 @@ export default class Page extends Component<Props, State> {
     return (
         <div>
             <div className="title" 
-                 style={{fontSize: "30px", marginBottom: "20px"}}>
+                 style={{fontSize: "30px", "fontWeight": 600, color: "#4c4c4c", marginBottom: "60px"}}>
                 成交趋势:
             </div>
             <ReactEcharts option={option}  
