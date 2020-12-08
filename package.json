@@ -59,6 +59,7 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
     "react": "^16.13.1",
+    "react-amap": "^1.2.8",
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
@@ -109,7 +110,7 @@
       "no-undef": "off",
       "no-restricted-globals": "off",
       "no-unused-vars": "off",
-      "jsx-a11y/anchor-is-valid":"off"
+      "jsx-a11y/anchor-is-valid": "off"
     }
   },
   "browserslist": {

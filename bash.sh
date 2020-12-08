@@ -1,6 +1,6 @@
 git add .
 
-git commit -m "add: table custom"
+git commit -m "add: map page"
 
 git pull origin master
 

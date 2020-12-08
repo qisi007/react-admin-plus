@@ -16,6 +16,7 @@ import echartsPage from "./child/echarts_page";
 import iconfontPage from "./child/iconfont_page";
 import tablePage from "./child/table_page";
 import skeleton from "./child/skeleton_page";
+import map from "./child/map_page";
 
 // 页面注册(目前是按照标题对应页面，后期按照页面的唯一标识对应)
 const components:{[prop: string]: any} = {
@@ -23,7 +24,8 @@ const components:{[prop: string]: any} = {
     '图表': echartsPage,
     '字体图标': iconfontPage,
     '表格': tablePage,
-    '骨架屏': skeleton
+    '骨架屏': skeleton,
+    '地图': map,
 }
 
 // 组件渲染工厂

@@ -69,5 +69,9 @@ export const MENU_LIST: NavItem[] = [
     {
         name: '骨架屏',
         key: 'skeleton'
+    },
+    {
+        name: '地图',
+        key: 'map'
     }
 ]
