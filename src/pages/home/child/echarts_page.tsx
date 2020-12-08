@@ -1,85 +1,107 @@
 import React, { Component } from 'react';
 import { TabItem } from "../../../interface/home_interface";
 import ReactEcharts from "echarts-for-react";
-import { Button } from "antd";
+import { Modal } from 'antd';
+import { echartsList } from '../../../config/echarts_mock';
+
+
 interface Props {
   prop: TabItem
 }
 
 interface State {
-  bgc: string
+  visible: boolean
+  modalWidth: number  
+  echartsDetail: any
 }
 
 
 export default class Page extends Component<Props, State> {
-  constructor ( props: Props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      bgc: '#2c343c'
+      visible: false,
+      modalWidth: 1200,
+      echartsDetail: {}
     }
 
   }
 
+  createList (that: any) {
+
+    console.log(that)
+    return echartsList.map( (el: any, index: number) => {
+      return (
+          <li className="echarts-page_list_item" 
+              key={index}>
+            <div className="echarts-main_body">
+              <ReactEcharts
+                option={el.option}
+                notMerge={true}
+                lazyUpdate={true}
+                className="echarts-main"
+                theme={"theme_name"} />
+            </div>
+            <p className="echarts-main_title" onClick={() => that.openEachartsDetail(el)}>{el.title}</p>
+          </li>
+      )
+    })
+  }
+
+  openEachartsDetail ( details: any) {
+    this.setState({
+      echartsDetail: details
+    })
+
+    this.showModal()
+  }
+
   render = () => {
-    // let { title } = this.props.prop;
-    let { bgc } = this.state;
-    const option = {
-      backgroundColor: bgc,
-      series: [
-        {
-          name: '访问来源',
-          type: 'pie',
-          radius: '55%',
-          data: [
-            { value: 235, name: '视频广告' },
-            { value: 274, name: '联盟广告' },
-            { value: 310, name: '邮件营销' },
-            { value: 335, name: '直接访问' },
-            { value: 400, name: '搜索引擎' }
-          ],
-          roseType: 'angle',
-          label: {
-            normal: {
-              textStyle: {
-                color: 'rgba(255, 255, 255, 0.3)'
-              }
-            }
-          },
-          labelLine: {
-            normal: {
-              lineStyle: {
-                color: 'rgba(255, 255, 255, 0.3)'
-              }
-            }
-          },
-          itemStyle: {
-            normal: {
-              shadowBlur: 200,
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-          }
-        }
-      ]
-    };
-
-    let { changeBGC } = this;
-
+    let { visible, modalWidth, echartsDetail } = this.state;
+    let { handleCancel, createList } = this;
+    let that = this;
     return (
-      <div>
-        <ReactEcharts
-          option={option}
-          style={{ width: '1000px' }}
-          notMerge={true}
-          lazyUpdate={true}
-          theme={"theme_name"} />
-        <Button onClick={changeBGC}>change</Button>
+      <div className="echarts-page">
+        <ul className="echarts-page_list">
+          {createList(that)}
+        </ul>
+
+        <Modal 
+          width={modalWidth}
+          title={echartsDetail.title}
+          visible={visible}
+          onCancel={handleCancel}
+          footer={null}>
+          <ReactEcharts
+                option={echartsDetail.option}
+                notMerge={true}
+                lazyUpdate={true}
+                className="echarts-main_detail"
+                theme={"theme_name"} />
+        </Modal>
       </div>
     )
   }
 
-  changeBGC = () => {
+  /**
+    * @name 点击取消
+    * @author liuguisheng
+    * @version 2020-09-14 16:10:20 星期一
+    */
+  handleCancel = () => {
     this.setState({
-      bgc: this.state.bgc === '#ccc' ? '#2c343c' : '#ccc'
-    })
+      visible: false,
+    });
+  }
+
+  /**
+   * @name 打开弹窗
+   * @author liuguisheng
+   * @version 2020-09-14 16:09:37 星期一
+   */
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
   }
 }
