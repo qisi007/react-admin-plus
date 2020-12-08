@@ -175,13 +175,15 @@
     margin: 0 20px;
     
     .table-page_setting {
-        min-height: 400px;
         margin: 20px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
 
         .table-page_setting_item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            width: 30%;
 
             .label {
                 min-width: 120px;

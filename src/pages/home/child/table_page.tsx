@@ -19,7 +19,8 @@ interface State {
     tableLayout: any
     expandable: any
     isExpandable: boolean
-
+    top: any
+    bottom: any
 }
 
 
@@ -118,6 +119,19 @@ const optionsWithlayout = [
     { label: '自适应', value: 'auto' },
 ];
 
+const optionsWithTop = [
+    { label: '默认', value: 'topLeft' },
+    { label: '固定', value: 'topCenter' },
+    { label: '自适应', value: 'topRight' },
+    { label: '自适应', value: 'none' },
+]
+
+const optionsWithBottom = [
+    { label: '左', value: 'bottomLeft' },
+    { label: '中', value: 'bottomCenter' },
+    { label: '右', value: 'bottomRight' },
+];
+
 const defaultTitle: any = () => '我是标题';
 const defaultFooter: any = () => '我是页脚';
 const expandable = { expandedRowRender: (record: any) => <p>{record.description}</p> };
@@ -138,7 +152,9 @@ export default class TablePage extends Component<Props, State> {
             footerContent: '',
             tableLayout: undefined,
             expandable: undefined,
-            isExpandable: false
+            isExpandable: false,
+            top: 'none',
+            bottom: 'bottomRight'
         }
 
     }
@@ -156,7 +172,9 @@ export default class TablePage extends Component<Props, State> {
                 isFooter,
                 tableLayout,
                 expandable,
-                isExpandable
+                isExpandable,
+                top,
+                bottom
             } = this.state;
         const { 
             onChangeBordered, 
@@ -167,7 +185,9 @@ export default class TablePage extends Component<Props, State> {
             onChangeFooter, 
             onChangeFooterContent,
             onChangeLayout,
-            onChangeExpandable
+            onChangeExpandable,
+            onChangeTop,
+            onChangeBottom
         } = this;
         
         return (
@@ -247,6 +267,22 @@ export default class TablePage extends Component<Props, State> {
                                     optionType="button"
                                     buttonStyle="solid"/>
                     </li>
+                    {/* <li className="table-page_setting_item">
+                        <div className="label">分页在顶部：</div>
+                        <Radio.Group options={optionsWithTop}
+                                    onChange={(e)=>onChangeTop(e, this)}
+                                    value={top}
+                                    optionType="button"
+                                    buttonStyle="solid"/>
+                    </li> */}
+                    <li className="table-page_setting_item">
+                        <div className="label">分页位置：</div>
+                        <Radio.Group options={optionsWithBottom}
+                                    onChange={(e)=>onChangeBottom(e, this)}
+                                    value={bottom}
+                                    optionType="button"
+                                    buttonStyle="solid"/>
+                    </li>
                 </ul>
                 <div className="table-page_body">
                     <Table bordered={bordered} 
@@ -258,6 +294,7 @@ export default class TablePage extends Component<Props, State> {
                            footer={footer}
                            tableLayout={tableLayout}
                            expandable={expandable}
+                           pagination={{ position: [this.state.top, this.state.bottom] }}
                            scroll={{ x: 1000, y: 600 }} />
                 </div>
             </div>
@@ -318,6 +355,7 @@ export default class TablePage extends Component<Props, State> {
         that.setState({ tableLayout: e.target.value })  
     }
 
+    // 改变是非否折行
     onChangeExpandable ( e: any, that: any ) {
         let value = e.target.value
         that.setState({ 
@@ -325,4 +363,16 @@ export default class TablePage extends Component<Props, State> {
             expandable: value ? expandable : undefined, 
         })
     }
+
+    // 改变分页顶部
+    onChangeTop ( e: any, that: any ) {
+        that.setState({ top: e.target.value, bottom: 'none' })  
+    }
+
+    // 改变分页底部位置
+    onChangeBottom ( e: any, that: any ) {
+        that.setState({ bottom: e.target.value, top: 'none' })  
+    }
+
+
 }

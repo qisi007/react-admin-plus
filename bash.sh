@@ -1,6 +1,6 @@
 git add .
 
-git commit -m "add: echart list and detail"
+git commit -m "add: table custom"
 
 git pull origin master
 
