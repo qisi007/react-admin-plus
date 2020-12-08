@@ -149,20 +149,48 @@
             margin-top: 10px;
             text-align: center;
             cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                color: #1890ff;
+                transition: all .3s;
+            }
         }
 
         
 
     }
 
-    
-
-    
+    .echarts-main_detail {
+        width: 1000px;
+        margin-left: 50%;
+        transform: translateX(-500px);
+        height: 600px!important;
+    }
 }
 
-.echarts-main_detail {
-    width: 1000px;
-    margin-left: 50%;
-    transform: translateX(-500px);
-    height: 600px!important;
+// 表格页面
+
+.table-page {
+    margin: 0 20px;
+    
+    .table-page_setting {
+        min-height: 400px;
+        margin: 20px 0 0 0;
+
+        .table-page_setting_item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .label {
+                min-width: 120px;
+            }
+        }
+    }
+
+
+    .table-page_body {
+        height: 800px;
+    }
 }
