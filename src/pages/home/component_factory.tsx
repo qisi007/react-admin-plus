@@ -23,7 +23,7 @@ import markdown from "./child/markdown_page";
 // 页面注册(目前是按照标题对应页面，后期按照页面的唯一标识对应)
 const components:{[prop: string]: any} = {
     '主页': indexPage,
-    '图表': echartsPage,
+    'echarts图表': echartsPage,
     '字体图标': iconfontPage,
     '表格': tablePage,
     '骨架屏': skeleton,

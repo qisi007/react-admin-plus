@@ -18,7 +18,7 @@ export default class FramePage extends Component<Props, State> {
     }
     render = () => {
         console.log(this.props)
-        let { title, content } = this.props.prop;
+        let { title, content="" } = this.props.prop;
         const { scrolling } = this.state
         return (
             <>
