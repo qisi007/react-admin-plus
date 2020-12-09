@@ -192,13 +192,13 @@ export default class Home extends Component<Props, State> {
     */
     clickMenuItem = (navItem: NavItem) => {
         // 找到标题
-        let { name } = navItem;
+        let { name, path='' } = navItem;
         // 生成随机key
         let key: string = Math.random().toString();
         // // 判断是否添加过标签，添加过就不在添加并且激活的key为之前的key
         let hasTitle = INITIAL_PANES.find(el => el.title === name );
         let activeKey: string = hasTitle === undefined ? key : hasTitle.key;
-        hasTitle === undefined && INITIAL_PANES.push({title: name, content: name, key });
+        hasTitle === undefined && INITIAL_PANES.push({title: name, content: path, key });
         // // 更新状态
         this.setState({ panes: INITIAL_PANES, activeKey });
     }

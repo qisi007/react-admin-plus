@@ -12,19 +12,19 @@ export const NAV_LIST_MOCK = [
         "children": []
     },
     {
-        "code": 223,
+        "code": 22345,
         "name": "二级菜单",
         "children": [
             {
                 "name": "二级菜单-1",
-                "code": 250,
+                "code": 25540,
                 "url": "",
                 "type": 1,
                 "children": [{}]
             },
             {
                 "name": "二级菜单-2",
-                "code": 251,
+                "code": 2451,
                 "url": "",
                 "type": 1,
                 "children": []
@@ -38,25 +38,25 @@ export const NAV_LIST_MOCK = [
         "children": [
             {
                 "name": "多级菜单-1",
-                "code": 260,
+                "code": 26054,
                 "url": "",
                 "type": 1,
                 "children": [{
                     "name": "多级菜单-1-1",
-                    "code": 2520,
+                    "code": 252320,
                     "url": "",
                     "type": 1,
                     "children": [
                         {
                             "name": "多级菜单-1-1-1",
-                            "code": 25022,
+                            "code": 2523022,
                             "url": "",
                             "type": 1,
                             "children": [{}]
                         },
                         {
                             "name": "多级菜单-2-1-1",
-                            "code": 251,
+                            "code": 25122,
                             "url": "",
                             "type": 1,
                             "children": []
@@ -65,7 +65,7 @@ export const NAV_LIST_MOCK = [
                 },
                 {
                     "name": "多级菜单-2-b",
-                    "code": 1111,
+                    "code": 1112221,
                     "url": "",
                     "type": 1,
                     "children": []
@@ -73,12 +73,18 @@ export const NAV_LIST_MOCK = [
             },
             {
                 "name": "多级菜单-2",
-                "code": 261,
+                "code": 261222,
                 "url": "",
                 "type": 1,
                 "children": [{}]
             }
         
         ]
-    }
+    },
+    {
+        "code": 723445,
+        "name": "外链集成",
+        "path": "https://www.allqj.com",
+        "children": [{}]
+    },
 ]

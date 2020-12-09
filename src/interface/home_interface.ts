@@ -22,7 +22,8 @@ export interface NavItem {
 export interface TabItem {
     title: string,
     content: string,
-    key: string
+    key: string,
+    path: string
 }
 
 // 图标字体接口

@@ -17,6 +17,8 @@ import iconfontPage from "./child/iconfont_page";
 import tablePage from "./child/table_page";
 import skeleton from "./child/skeleton_page";
 import map from "./child/map_page";
+import rice from "./child/rich_page";
+import markdown from "./child/markdown_page";
 
 // 页面注册(目前是按照标题对应页面，后期按照页面的唯一标识对应)
 const components:{[prop: string]: any} = {
@@ -26,6 +28,8 @@ const components:{[prop: string]: any} = {
     '表格': tablePage,
     '骨架屏': skeleton,
     '地图': map,
+    '富文本编辑器': rice,
+    '文档': markdown
 }
 
 // 组件渲染工厂

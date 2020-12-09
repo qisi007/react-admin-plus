@@ -6,7 +6,7 @@
 
 ## 在线地址
 
-<a href="https://www.liuguisheng.vip/react-admin-plus/#/login" target="blank">在线demo</a>
+<a href="https://www.liuguisheng.vip/react-admin-plus/#/login" target="_blank">在线demo</a>
 
 ## 技术栈
  - [TypeScript](https://www.tslang.cn/docs/home.html)
@@ -20,6 +20,7 @@
  - [echarts-for-react](https://www.npmjs.com/package/echarts-for-react)
  - [copy-to-clipboard](https://www.npmjs.com/package/copy-to-clipboard)
  - [react-amap](https://elemefe.github.io/react-amap/articles/start)
+ - [braft-editor](https://braft.margox.cn/)
 
 >衷心的感谢以上所有插件的作者
 

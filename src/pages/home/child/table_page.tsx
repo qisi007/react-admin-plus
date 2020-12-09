@@ -119,12 +119,12 @@ const optionsWithlayout = [
     { label: '自适应', value: 'auto' },
 ];
 
-const optionsWithTop = [
-    { label: '默认', value: 'topLeft' },
-    { label: '固定', value: 'topCenter' },
-    { label: '自适应', value: 'topRight' },
-    { label: '自适应', value: 'none' },
-]
+// const optionsWithTop = [
+//     { label: '默认', value: 'topLeft' },
+//     { label: '固定', value: 'topCenter' },
+//     { label: '自适应', value: 'topRight' },
+//     { label: '自适应', value: 'none' },
+// ]
 
 const optionsWithBottom = [
     { label: '左', value: 'bottomLeft' },
@@ -173,7 +173,6 @@ export default class TablePage extends Component<Props, State> {
                 tableLayout,
                 expandable,
                 isExpandable,
-                top,
                 bottom
             } = this.state;
         const { 
@@ -186,7 +185,6 @@ export default class TablePage extends Component<Props, State> {
             onChangeFooterContent,
             onChangeLayout,
             onChangeExpandable,
-            onChangeTop,
             onChangeBottom
         } = this;
         

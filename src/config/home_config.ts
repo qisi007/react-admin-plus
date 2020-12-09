@@ -59,7 +59,7 @@ export const MENU_LIST: NavItem[] = [
         key: 'iconfont'
     },
     {
-        name: '图表',
+        name: 'echarts图表',
         key: 'echarts'
     },
     {
@@ -73,5 +73,9 @@ export const MENU_LIST: NavItem[] = [
     {
         name: '地图',
         key: 'map'
+    },
+    {
+        name: '富文本编辑器',
+        key: 'markdown'
     }
 ]
