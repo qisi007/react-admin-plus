@@ -77,5 +77,9 @@ export const MENU_LIST: NavItem[] = [
     {
         name: '富文本编辑器',
         key: 'markdown'
+    },
+    {
+        name: '内置动画',
+        key: 'animation'
     }
 ]

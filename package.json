@@ -65,6 +65,7 @@
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
     "react-grid-layout": "^1.1.1",
+    "react-magic": "^0.2.3",
     "react-markdown": "^5.0.3",
     "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
