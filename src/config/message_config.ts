@@ -11,5 +11,5 @@ export const MESSAGE_CONFIG = {
     getStorageError: '读取数据失败!',
     setStorageError: '存入数据失败!',
     removeStorageError: '删除数据失败!',
-    clearStorageError: '清空数据失败'
+    clearStorageError: '清空数据失败!'
 }

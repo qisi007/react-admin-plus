@@ -84,7 +84,7 @@ export const NAV_LIST_MOCK = [
     {
         "code": 723445,
         "name": "外链集成",
-        "path": "https://www.allqj.com",
+        "path": "https://www.liuguisheng.vip",
         "children": [{}]
     },
 ]
