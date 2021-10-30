@@ -12,8 +12,7 @@ interface Prop {
 
 // state接口
 interface State {
-    loading: boolean,
-    backgroundColor: string
+    loading: boolean
 }
 
 
@@ -23,21 +22,15 @@ export default class Login extends Component<Prop, State> {
     constructor(prop: Prop) {
         super(prop);
         this.state = {
-            loading: false,
-            backgroundColor: '#516D8B'
+            loading: false
         }
     }
 
     render = () => {
-        setTimeout(() => {
-            let backgroundColor: string = '#' + (Math.random() * 2333333).toFixed();
-            this.setState({backgroundColor})
-        },100)
         let { onFinish } = this;
-        let { loading, backgroundColor } = this.state;
+        let { loading } = this.state;
         return (
-            <div id="login" 
-                 style={{backgroundColor}}>
+            <div id="login">
                 <iframe className="github-star"
                         title="github star"
                         width="100px" height="20px"
@@ -85,11 +78,16 @@ export default class Login extends Component<Prop, State> {
     * @version 2020-09-15 17:54:29 星期二
     */
     onFinish = (form: loginForm) => {
-        let { username } = form;
-        // 将用户姓名存入localStorageb并提示登录成功
-        new StorageMethods().set('username', username);
-        message.success(MESSAGE_CONFIG.logoSuccess);
-        // 跳转到home页
-        this.props.history.push({ pathname: '/home', state: form })
+        this.setState({ loading: true })
+        const { username } = form;
+        // 模拟请求
+        setTimeout(() => {
+            // 将用户姓名存入localStorageb并提示登录成功
+            new StorageMethods().set('username', username);
+            message.success(MESSAGE_CONFIG.logoSuccess);
+            this.setState({ loading: false })
+            // 跳转到home页
+            this.props.history.push({ pathname: '/home', state: form })
+        }, 2000)
     };
 }
