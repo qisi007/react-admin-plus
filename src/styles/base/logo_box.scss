@@ -5,14 +5,10 @@
     height: 100px;
     justify-content: center;
     cursor: pointer;
+    border-bottom: 1px solid #1f2c3a;
 
     img {
-        transition: all 10s;
-
-        &:hover {
-            transform: rotate(-360000deg);
-            transition: all 100s;
-        }
+       width: 50px;
     }
 
     span {
@@ -20,6 +16,5 @@
         font-family: 'Micsoft YaHei';
         font-weight: 700;
         color: #5c5c5c;
-        margin-left: 10px;
     }
 }

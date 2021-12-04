@@ -22,15 +22,17 @@ export default class LogoBox extends Component<Props, State> {
     render () {
         let { url, title, color, size, back } = this.props;
         // 样式计算
-        let transform: string = size === 'large' ? 'scale(1)' : 'scale(0.5)'
+        let transform: string = size === 'large' ? 'scale(1)' : 'scale(0.8)'
         return (
             <a href="https://www.liuguisheng.vip/" 
                target="_blank" 
                rel="noopener noreferrer">
                 <div id="logo-box" 
                  style={{transform, backgroundColor: back}}>
-                <img src={url} alt=""/>
-                <span style={{color}}>{title}</span>
+                <img src={url} alt="logo"/>
+                {
+                    size == 'large' && <span style={{color}}>{title}</span>
+                }
             </div>
             </a>
         )

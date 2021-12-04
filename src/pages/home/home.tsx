@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import HomeStore from "../../store/home";
 import GlobalConfigStore from "../../store/global_config";
-import { Menu, Tabs } from "antd";
+import { Menu, Tabs, Button } from "antd";
 import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
 import { NavItem, TabItem } from "../../interface/home_interface";
@@ -10,7 +10,7 @@ import LogoBox from "../../components/base/logo_box";
 import { INITIAL_PANES, MENU_LIST } from "../../config/home_config";
 import { componentFactory } from "./component_factory";
 import { StorageMethods } from '../../utils/storage_utils';
-
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '../../config/iconfont'
 
 const LOGO: string = require("../../assets/images/logo.png");
  
@@ -65,10 +65,7 @@ export default class Home extends Component<Props, State> {
         let { background } = this.state;
         let activeTab = document.querySelector('.ant-tabs-tab-active');
         let antTabsNavWrap = document.querySelector('.ant-tabs-nav');
-
-
         let antTabsTas = document.querySelectorAll('.ant-tabs-tab');
-
         if (activeTab) {
             (activeTab as any).style.background = background;
             (antTabsNavWrap as any).style.background = background;
@@ -82,7 +79,7 @@ export default class Home extends Component<Props, State> {
         } 
     }
     render = () => {
-        let { createMenu, clickMenuItem, handGlobalSetting, onChange, onEdit  } = this;
+        let { createMenu, clickMenuItem, handGlobalSetting, onChange, onEdit, toggleCollapsed  } = this;
         let { background, collapsed, theme, mode, panes, activeKey, username } = this.state;
         
         // 样式计算
@@ -96,7 +93,7 @@ export default class Home extends Component<Props, State> {
 
         return (
             <div id='home' style={{ background }}>
-                <div className="left" 
+                <div className="home-left" 
                      style={{ flex,
                               background: leftBack}}>
                         <LogoBox url={LOGO} 
@@ -121,27 +118,33 @@ export default class Home extends Component<Props, State> {
                         {createMenu()}
                     </Menu>
                 </div>
-                <div className="right">
+                <div className="home-right">
                     <div className="header-box">
+                        <div className="header-box_top">
+                            <Button type="text" 
+                                    size="large"
+                                    onClick={toggleCollapsed} >
+                                {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
+                            </Button>
+
+                        </div>
+                        
                         {/* 顶部标签 */}
-                        <Tabs type="editable-card"
+                        {/* <Tabs type="editable-card"
                             style={{ color }}
                             hideAdd={true}
                             onChange={onChange}
                             onEdit={onEdit}
-                            tabBarExtraContent={{right: <div className="header-box_right">
-                                                            <div className="user-box">你好！ {username}</div>
-                                                            <GlobleSetting globalConfigStore={new GlobalConfigStore()}
-                                                                        handGlobalSetting={handGlobalSetting} />
-                                                        </div>}}
                             activeKey={activeKey}>
                              {panes.map((pane: TabItem) => (
                                 <TabPane tab={pane.title}
                                     key={pane.key}>
-                                    {/* 动态标签内容 */}
+                                        <div style={{ height: '2000px'}}>
+                                        页面
+                                        </div>
                                     {componentFactory(pane)}
                                 </TabPane>))}
-                        </Tabs>
+                        </Tabs> */}
                     </div>
                     {/* <div className="line"></div> */}
                 </div>
@@ -242,5 +245,16 @@ export default class Home extends Component<Props, State> {
             INITIAL_PANES.splice(removeIndex, 1);
             this.setState({panes: INITIAL_PANES, activeKey});
         }
+    }
+
+    /**
+    * @name 展开收起菜单
+    * @author liuguisheng
+    * @version 2020-09-17 09:05:27 星期四
+    */
+    toggleCollapsed = () => {
+        this.setState({
+            collapsed: !this.state.collapsed,
+          });
     }
 }

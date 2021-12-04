@@ -10,9 +10,11 @@ import {
     MailOutlined,
     StarOutlined,
     LikeOutlined,
-    MessageOutlined 
+    MessageOutlined,
+    MenuUnfoldOutlined,
+    MenuFoldOutlined
 } from '@ant-design/icons';
-export const  ICON_LIST_CONFIG =  {
+export {
     AppstoreOutlined,
     PieChartOutlined,
     DesktopOutlined,
@@ -20,5 +22,7 @@ export const  ICON_LIST_CONFIG =  {
     MailOutlined,
     StarOutlined,
     LikeOutlined,
-    MessageOutlined
+    MessageOutlined,
+    MenuUnfoldOutlined,
+    MenuFoldOutlined
 }

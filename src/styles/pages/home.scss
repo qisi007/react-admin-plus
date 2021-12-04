@@ -1,89 +1,88 @@
+@import "../common/var.scss";
+
 #home {
     display: flex;
     justify-content: space-between;
+    height: 100vh;
 
-    // 根据屏幕宽度动态计算标签页宽度
-    @for $i from 0 to 300 {
-        @media screen and (max-width: 2000px - 5px * $i) and (min-width: 1900px - 5px * $i){
-            .ant-tabs > .ant-tabs-nav {
-                width: 1800px - 5px * $i;
-            }
-        }
-    }
-
-    .left {
-        height: 100vh;
-        border-right: 1px solid rgb(204, 204, 204);
-        overflow-y: scroll;
+    .home-left {
+        overflow-y: auto;
         box-sizing: border-box;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
         
     }
 
-    .right {
+    .home-right {
         width: 100%;
-        height: 100vh;
-        overflow-y: scroll;
+        height: 100%;
+        // overflow-y: auto;
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
         .header-box {
-            display: flex;
-            justify-content: space-between;
-                       
-            .header-box_right {
-                width: 180px;
-                display: flex;
-                margin-top: 5px;
+            height: 100%;
 
-                .user-box {
-                    text-align: end;
-                    overflow: hidden;
-                    color: #1fb19e;
-                    margin-top: -3px;
-                }
+            .header-box_top {
+                width: 100%;
+                height: 50px;
+                border-bottom: 1px solid $--border-color_default;
+                box-shadow: 0 0 5px $--shadow-color_default;
+                display: flex;
+                align-items: center;
+
             }
         }
+        
+        // .header-box {
+        //     display: flex;
+        //     justify-content: space-between;
+                       
+        //     .header-box_right {
+        //         width: 180px;
+        //         display: flex;
+        //         margin-top: 5px;
 
-        .line {
-            width: 100%;
-            height: 1px;
-            background-color: #ccc;
-            position: fixed;
-            top: 40px;
+        //         .user-box {
+        //             text-align: end;
+        //             overflow: hidden;
+        //             color: #1fb19e;
+        //             margin-top: -3px;
+        //         }
+        //     }
+        // }
+
+        // .line {
+        //     width: 100%;
+        //     height: 1px;
+        //     background-color: #ccc;
+        //     position: fixed;
+        //     top: 40px;
 
 
-        }
+        // }
 
-        .ant-tabs-nav {
-            position: fixed;
-            z-index: 999;
-            border-bottom: 1px solid #ccc;
-            height: 40px;
-        }
+        // .ant-tabs-nav {
+        //     position: fixed;
+        //     z-index: 999;
+        //     border-bottom: 1px solid #ccc;
+        //     height: 40px;
+        // }
 
-        .ant-tabs-content-holder {
-            margin-top: 50px;
-        }
+        // .ant-tabs-content-holder {
+        //     margin-top: 50px;
+        // }
     }
 
-    .anticon-close {
-        color: #ccc;
-        transition: color .3s;
+    // .anticon-close {
+    //     color: #ccc;
+    //     transition: color .3s;
 
-        &:hover {
-            color: #1890ff;
-            transition: color .3s;
-        }
-    }
+    //     &:hover {
+    //         color: #1890ff;
+    //         transition: color .3s;
+    //     }
+    // }
     
-    .ant-tabs-top > .ant-tabs-nav::before {
-        border-bottom: none;
-    }
+    // .ant-tabs-top > .ant-tabs-nav::before {
+    //     border-bottom: none;
+    // }
 
 }
 
