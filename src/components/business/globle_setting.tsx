@@ -42,7 +42,7 @@ export default class GlobleSetting extends Component<Props, State> {
         return (
             <div id="globle-setting">
                 <Tooltip title="全局设置">
-                    <SettingOutlined style={{ fontSize: '18px', color: '#1fb19e' }} onClick={showModal} />
+                    <SettingOutlined style={{ fontSize: '18px', color: '#4c4c4c' }} onClick={showModal} />
                 </Tooltip>
                 <Modal className="globle-setting_dialog"
                     title="全局设置"

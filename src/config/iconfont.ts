@@ -12,7 +12,8 @@ import {
     LikeOutlined,
     MessageOutlined,
     MenuUnfoldOutlined,
-    MenuFoldOutlined
+    MenuFoldOutlined,
+    PoweroffOutlined
 } from '@ant-design/icons';
 export {
     AppstoreOutlined,
@@ -24,5 +25,6 @@ export {
     LikeOutlined,
     MessageOutlined,
     MenuUnfoldOutlined,
-    MenuFoldOutlined
+    MenuFoldOutlined,
+    PoweroffOutlined
 }

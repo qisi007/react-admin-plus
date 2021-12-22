@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import HomeStore from "../../store/home";
 import GlobalConfigStore from "../../store/global_config";
-import { Menu, Tabs, Button } from "antd";
+import { Menu, Tabs, Button, Tooltip } from "antd";
 import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
 import { NavItem, TabItem } from "../../interface/home_interface";
@@ -10,9 +10,10 @@ import LogoBox from "../../components/base/logo_box";
 import { INITIAL_PANES, MENU_LIST } from "../../config/home_config";
 import { componentFactory } from "./component_factory";
 import { StorageMethods } from '../../utils/storage_utils';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '../../config/iconfont'
+import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined } from '../../config/iconfont'
 
 const LOGO: string = require("../../assets/images/logo.png");
+const HEADER: string = require("../../assets/images/header.gif");
  
 // 引入子导航
 const { SubMenu } = Menu;
@@ -126,6 +127,19 @@ export default class Home extends Component<Props, State> {
                                     onClick={toggleCollapsed} >
                                 {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
                             </Button>
+
+                            <div className="header-box_top_config">
+                                <div className="header-box-top_user">
+                                    <img src={HEADER} alt="" />
+                                    <span>{username}</span>
+                                </div>
+                                <GlobleSetting globalConfigStore={new GlobalConfigStore()}
+                                                handGlobalSetting={handGlobalSetting}></GlobleSetting>
+                                <Tooltip title="退出登录">
+                                    <PoweroffOutlined style={{ fontSize: '18px', color: '#4c4c4c', marginLeft: '20px', cursor: 'pointer' }} />
+                                </Tooltip>
+                                
+                            </div>
 
                         </div>
                         
