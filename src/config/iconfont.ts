@@ -13,7 +13,8 @@ import {
     MessageOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
-    PoweroffOutlined
+    PoweroffOutlined,
+    CloseOutlined
 } from '@ant-design/icons';
 export {
     AppstoreOutlined,
@@ -26,5 +27,6 @@ export {
     MessageOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
-    PoweroffOutlined
+    PoweroffOutlined,
+    CloseOutlined
 }

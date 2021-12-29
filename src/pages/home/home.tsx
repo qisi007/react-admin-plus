@@ -10,10 +10,20 @@ import LogoBox from "../../components/base/logo_box";
 import { INITIAL_PANES, MENU_LIST } from "../../config/home_config";
 import { componentFactory } from "./component_factory";
 import { StorageMethods } from '../../utils/storage_utils';
-import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined } from '../../config/iconfont'
+import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined, CloseOutlined } from '../../config/iconfont';
+
+
+
 
 const LOGO: string = require("../../assets/images/logo.png");
 const HEADER: string = require("../../assets/images/header.gif");
+
+const defaultNav = [
+    {
+        name: '主页',
+        key: 'index'
+    }
+]
  
 // 引入子导航
 const { SubMenu } = Menu;
@@ -36,7 +46,8 @@ interface State {
     overflowY: string,
     activeKey: string,
     panes: TabItem[],
-    username: string
+    username: string,
+    navList: any[]
 }
 
 @inject('homeStore')
@@ -51,9 +62,10 @@ export default class Home extends Component<Props, State> {
             theme: 'dark',
             mode: 'inline',
             overflowY: 'scroll',
-            activeKey: '0',
+            activeKey: 'index',
             panes: INITIAL_PANES,
-            username: 'admin'
+            username: 'admin',
+            navList: []
         }
     }
     componentDidMount = () => {
@@ -80,8 +92,8 @@ export default class Home extends Component<Props, State> {
         } 
     }
     render = () => {
-        let { createMenu, clickMenuItem, handGlobalSetting, onChange, onEdit, toggleCollapsed  } = this;
-        let { background, collapsed, theme, mode, panes, activeKey, username } = this.state;
+        let { createMenu, clickMenuItem, handGlobalSetting, onChange, editTabsItem, toggleCollapsed  } = this;
+        let { background, collapsed, theme, mode, panes, activeKey, username, navList } = this.state;
         
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
@@ -106,6 +118,7 @@ export default class Home extends Component<Props, State> {
                         mode={mode as any}
                         inlineCollapsed={collapsed}
                         className="meun-box"
+                        selectedKeys={[activeKey]}
                         defaultSelectedKeys={['index']}>
                         {/* 主页导航 */}
                         {
@@ -138,34 +151,69 @@ export default class Home extends Component<Props, State> {
                                 <Tooltip title="退出登录">
                                     <PoweroffOutlined style={{ fontSize: '18px', color: '#4c4c4c', marginLeft: '20px', cursor: 'pointer' }} />
                                 </Tooltip>
-                                
                             </div>
-
                         </div>
+                       
                         
                         {/* 顶部标签 */}
-                        {/* <Tabs type="editable-card"
-                            style={{ color }}
-                            hideAdd={true}
-                            onChange={onChange}
-                            onEdit={onEdit}
-                            activeKey={activeKey}>
-                             {panes.map((pane: TabItem) => (
-                                <TabPane tab={pane.title}
-                                    key={pane.key}>
-                                        <div style={{ height: '2000px'}}>
-                                        页面
-                                        </div>
-                                    {componentFactory(pane)}
-                                </TabPane>))}
-                        </Tabs> */}
+                        <div className="card-container">
+                            <Tabs type="editable-card" 
+                                    hideAdd 
+                                    size="small"
+                                    activeKey={activeKey} 
+                                    onEdit={this.editTabsItem}
+                                    onChange={ this.changeTabsItem} >
+                                {
+                                    defaultNav.map(el => {
+                                        return  <TabPane tab={el.name} key={el.key}>
+                                                    <p>{el.name}</p>
+                                                </TabPane>
+                                    })
+                                }
+                                {
+                                    navList.map(el => {
+                                        return  <TabPane tab={el.name} key={el.key}>
+                                                    <p>{el.name}</p>
+                                                </TabPane>
+                                    })
+                                }
+                            </Tabs>
+                        </div>
+                        
                     </div>
-                    {/* <div className="line"></div> */}
                 </div>
             </div>
         )
     }
+    
+    editTabsItem = ( index: string, action: any) => {
+        if ( index == 'index') return
+        let navList = [...this.state.navList];
+        if ( action == 'remove') {
+            let currentIndex = navList.findIndex( el => el.key == index )
+            navList.splice(currentIndex, 1)
+            let length = navList.length;
+            let activeKey = null;
+            if ( currentIndex == length && length != 0 ) {
+                activeKey = navList[currentIndex-1].key
+            }else if (currentIndex == length && length == 0 ) {
+                activeKey = "index"
+            } else {
+                activeKey = navList[currentIndex].key
+            }
+            this.setState({
+                navList,
+                activeKey
+            })
+        }
+    }
 
+    changeTabsItem = ( index: string) => {
+        this.setState({
+            activeKey: index
+        })
+    }
+    
     /**
     * @name 创建导航
     * @return { Array } 菜单列表
@@ -192,10 +240,10 @@ export default class Home extends Component<Props, State> {
         // 递归创建导航
         return NavList.map((el: NavItem) => {
             if (el.children && el.children.length && Object.keys(el.children[0]).length) {
-                return <SubMenu key={el.code} 
+                return <SubMenu key={el.key} 
                                 title={el.name}>{createNavItem(el.children)}</SubMenu>
             } else {
-                return <Menu.Item key={el.code}
+                return <Menu.Item key={el.key}
                                   onClick={() => clickMenuItem(el)}>{el.name}</Menu.Item>
             }
         })
@@ -208,16 +256,16 @@ export default class Home extends Component<Props, State> {
     * @version 2020-09-14 14:49:56 星期一
     */
     clickMenuItem = (navItem: NavItem) => {
-        // 找到标题
-        let { name, path='' } = navItem;
-        // 生成随机key
-        let key: string = Math.random().toString();
-        // // 判断是否添加过标签，添加过就不在添加并且激活的key为之前的key
-        let hasTitle = INITIAL_PANES.find(el => el.title === name );
-        let activeKey: string = hasTitle === undefined ? key : hasTitle.key;
-        hasTitle === undefined && INITIAL_PANES.push({title: name, content: path, key });
-        // // 更新状态
-        this.setState({ panes: INITIAL_PANES, activeKey });
+        console.log(navItem)
+        let navList = [...this.state.navList];
+        let result = navList.find(el => el.key == navItem.key)
+        if ( navItem.key !== 'index' && !result) {
+            navList.push(navItem)
+            this.setState({
+                navList,
+                activeKey: navItem.key
+            })
+        }
     }
 
     /**
@@ -270,5 +318,7 @@ export default class Home extends Component<Props, State> {
         this.setState({
             collapsed: !this.state.collapsed,
           });
+
+          
     }
 }
