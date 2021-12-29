@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import HomeStore from "../../store/home";
 import GlobalConfigStore from "../../store/global_config";
-import { Menu, Tabs, Button, Tooltip } from "antd";
+import { Menu, Tabs, Button, Tooltip, Modal } from "antd";
 import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
 import { NavItem, TabItem } from "../../interface/home_interface";
@@ -34,7 +34,8 @@ const { TabPane } = Tabs;
 interface Props {
     homeStore: HomeStore
     location: any
-    globalConfigStore: GlobalConfigStore
+    globalConfigStore: GlobalConfigStore,
+    history: any
 }
 
 // state接口
@@ -47,7 +48,8 @@ interface State {
     activeKey: string,
     panes: TabItem[],
     username: string,
-    navList: any[]
+    navList: any[],
+    visible: boolean,
 }
 
 @inject('homeStore')
@@ -65,7 +67,8 @@ export default class Home extends Component<Props, State> {
             activeKey: 'index',
             panes: INITIAL_PANES,
             username: 'admin',
-            navList: []
+            navList: [],
+            visible: false,
         }
     }
     componentDidMount = () => {
@@ -93,7 +96,7 @@ export default class Home extends Component<Props, State> {
     }
     render = () => {
         let { createMenu, clickMenuItem, handGlobalSetting, onChange, editTabsItem, toggleCollapsed  } = this;
-        let { background, collapsed, theme, mode, panes, activeKey, username, navList } = this.state;
+        let { background, collapsed, theme, mode, visible, activeKey, username, navList } = this.state;
         
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
@@ -149,7 +152,8 @@ export default class Home extends Component<Props, State> {
                                 <GlobleSetting globalConfigStore={new GlobalConfigStore()}
                                                 handGlobalSetting={handGlobalSetting}></GlobleSetting>
                                 <Tooltip title="退出登录">
-                                    <PoweroffOutlined style={{ fontSize: '18px', color: '#4c4c4c', marginLeft: '20px', cursor: 'pointer' }} />
+                                    <PoweroffOutlined style={{ fontSize: '18px', color: '#4c4c4c', marginLeft: '20px', marginTop: '2px', cursor: 'pointer' }} 
+                                                        onClick={this.handleOpen}/>
                                 </Tooltip>
                             </div>
                         </div>
@@ -161,6 +165,7 @@ export default class Home extends Component<Props, State> {
                                     hideAdd 
                                     size="small"
                                     activeKey={activeKey} 
+                                    animated={true}
                                     onEdit={this.editTabsItem}
                                     onChange={ this.changeTabsItem} >
                                 {
@@ -179,11 +184,36 @@ export default class Home extends Component<Props, State> {
                                 }
                             </Tabs>
                         </div>
-                        
                     </div>
                 </div>
+                <Modal
+                    visible={visible}
+                    title="退出登录"
+                    okText="确定"
+                    cancelText="取消"
+                    onOk={this.handleLogout}
+                    onCancel={this.handleCancel}>
+                        确定要退出登录吗？退出后，您保存的数据不会丢失！
+                    </Modal>
             </div>
         )
+    }
+
+    handleOpen = () => {
+        this.setState({
+            visible: true
+        })
+    }
+
+    handleCancel = () => {
+        this.setState({
+            visible: false
+        })
+    }
+
+    handleLogout = () => {
+        this.handleCancel()
+        this.props.history.push({ pathname: '/login'})
     }
     
     editTabsItem = ( index: string, action: any) => {
