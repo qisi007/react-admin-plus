@@ -9,6 +9,15 @@
         overflow-y: auto;
         box-sizing: border-box;
         
+        &::-webkit-scrollbar {
+            width: 5px;    
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: #144572;
+        }
+        
     }
 
     .home-right {
