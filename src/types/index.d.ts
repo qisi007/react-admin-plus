@@ -6,3 +6,4 @@ declare module "react-amap";
 declare module "react-magic";
 declare module "aphrodite"
 declare module "react-magic/lib"
+declare module "h5-api"

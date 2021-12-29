@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
 import HomeStore from "../../store/home";
 import GlobalConfigStore from "../../store/global_config";
-import { Menu, Tabs, Button, Tooltip, Modal } from "antd";
+import { Menu, Tabs, Button, Tooltip, Modal, Drawer } from "antd";
 import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
 import { NavItem, TabItem } from "../../interface/home_interface";
@@ -11,6 +11,7 @@ import { INITIAL_PANES, MENU_LIST } from "../../config/home_config";
 import { componentFactory } from "./component_factory";
 import { StorageMethods } from '../../utils/storage_utils';
 import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined, CloseOutlined } from '../../config/iconfont';
+import { h5Api } from "h5-api";
 
 
 
@@ -50,6 +51,7 @@ interface State {
     username: string,
     navList: any[],
     visible: boolean,
+    drawerVisible: boolean
 }
 
 @inject('homeStore')
@@ -69,6 +71,7 @@ export default class Home extends Component<Props, State> {
             username: 'admin',
             navList: [],
             visible: false,
+            drawerVisible: false
         }
     }
     componentDidMount = () => {
@@ -95,47 +98,78 @@ export default class Home extends Component<Props, State> {
         } 
     }
     render = () => {
-        let { createMenu, clickMenuItem, handGlobalSetting, onChange, editTabsItem, toggleCollapsed  } = this;
-        let { background, collapsed, theme, mode, visible, activeKey, username, navList } = this.state;
+        let { createMenu, clickMenuItem, handGlobalSetting, toggleCollapsed  } = this;
+        let { background, collapsed, theme, mode, visible, activeKey, username, navList, drawerVisible } = this.state;
         
         // 样式计算
         let tabs = document.querySelectorAll('.ant-tabs-tab');
         tabs.length && tabs.forEach( (el:any) =>  el.style.background=background);
         let logoColor: string = theme !== 'dark' ? '#001529' : '#fff';
-        let color: string = background === '#fff' ? '#001529' : '#fff';
         let size: string = !collapsed ? 'large' : 'small';
         let flex: string = !collapsed ? '0 0 240px' : '0 0 75px';
         let leftBack: string = theme === 'dark' ? '#001529' : '#fff';
 
+        const isPc:boolean = h5Api.isPc()
+
         return (
             <div id='home' style={{ background }}>
-                <div className="home-left" 
-                     style={{ flex,
-                              background: leftBack}}>
-                        <LogoBox url={LOGO} 
-                            title={'React-Admin-Plus'} 
-                            color={ logoColor }
-                            size={size} 
-                            back={leftBack}></LogoBox>
-                    <Menu theme={theme as any}
-                        mode={mode as any}
-                        inlineCollapsed={collapsed}
-                        className="meun-box"
-                        selectedKeys={[activeKey]}
-                        defaultSelectedKeys={['index']}>
-                        {/* 主页导航 */}
-                        {
-                            MENU_LIST.map((el:NavItem) => {
-                                let { key, name } = el;
-                                return <Menu.Item key={key} 
-                                            icon={<i className={el.icon}></i>}
-                                           onClick={() => clickMenuItem(el)}> {name}  </Menu.Item>
-                            })
-                        }
-                        {/* 树状导航 */}
-                        {createMenu()}
-                    </Menu>
-                </div>
+                {
+                    isPc && <div className="home-left" 
+                        style={{ flex,
+                                background: leftBack}}>
+                            <LogoBox url={LOGO} 
+                                title={'React-Admin-Plus'} 
+                                color={ logoColor }
+                                size={size} 
+                                back={leftBack}></LogoBox>
+                        <Menu theme={theme as any}
+                            mode={mode as any}
+                            inlineCollapsed={collapsed}
+                            className="meun-box"
+                            selectedKeys={[activeKey]}
+                            defaultSelectedKeys={['index']}>
+                            {/* 主页导航 */}
+                            {
+                                MENU_LIST.map((el:NavItem) => {
+                                    let { key, name } = el;
+                                    return <Menu.Item key={key} 
+                                                icon={<i className={el.icon}></i>}
+                                            onClick={() => clickMenuItem(el)}> {name}  </Menu.Item>
+                                })
+                            }
+                            {/* 树状导航 */}
+                            {createMenu()}
+                        </Menu>
+                    </div>
+                }
+                {
+                    !isPc && <Drawer
+                        placement="left"
+                        width="80%"
+                        closable={false}
+                        onClose={this.onCloseDrawer}
+                        visible={drawerVisible}
+                    >
+                        <Menu
+                            mode={mode as any}
+                            inlineCollapsed={collapsed}
+                            className="meun-box"
+                            selectedKeys={[activeKey]}
+                            defaultSelectedKeys={['index']}>
+                            {/* 主页导航 */}
+                            {
+                                MENU_LIST.map((el:NavItem) => {
+                                    let { key, name } = el;
+                                    return <Menu.Item key={key} 
+                                                icon={<i className={el.icon}></i>}
+                                            onClick={() => clickMenuItem(el)}> {name}  </Menu.Item>
+                                })
+                            }
+                            {/* 树状导航 */}
+                            {createMenu()}
+                        </Menu>
+                    </Drawer>
+                }
                 <div className="home-right">
                     <div className="header-box">
                         <div className="header-box_top">
@@ -209,6 +243,18 @@ export default class Home extends Component<Props, State> {
     handleCancel = () => {
         this.setState({
             visible: false
+        })
+    }
+
+    onCloseDrawer = () => {
+        this.setState({
+            drawerVisible: false
+        })
+    }
+
+    onOpenDrawer = () => {
+        this.setState({
+            drawerVisible: true
         })
     }
 
@@ -294,6 +340,9 @@ export default class Home extends Component<Props, State> {
         let result = navList.find(el => el.key == navItem.key)
         if ( navItem.key !== 'index' && !result) {
             navList.push(navItem)
+            if ( !h5Api.isPc() && navList.length == 4) {
+                navList.splice(1, 1)
+            }
             this.setState({
                 navList,
                 activeKey: navItem.key
@@ -348,10 +397,12 @@ export default class Home extends Component<Props, State> {
     * @version 2020-09-17 09:05:27 星期四
     */
     toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-          });
-
-          
+        if ( h5Api.isPc() ) {
+            this.setState({
+                collapsed: !this.state.collapsed,
+            });
+        } else {
+            this.onOpenDrawer()
+        }
     }
 }
