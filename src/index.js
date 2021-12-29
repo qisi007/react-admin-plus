@@ -8,6 +8,7 @@ import 'antd/dist/antd.css';
 import './assets/fonts/font1/iconfont.css';
 import './assets/fonts/font2/iconfont.css';
 import './assets/fonts/font3/iconfont.css';
+import './assets/fonts/font/iconfont.css';
 
 
 ReactDOM.render(

@@ -128,7 +128,8 @@ export default class Home extends Component<Props, State> {
                             MENU_LIST.map((el:NavItem) => {
                                 let { key, name } = el;
                                 return <Menu.Item key={key} 
-                                           onClick={() => clickMenuItem(el)}>{name}</Menu.Item>
+                                            icon={<i className={el.icon}></i>}
+                                           onClick={() => clickMenuItem(el)}> {name}  </Menu.Item>
                             })
                         }
                         {/* 树状导航 */}
@@ -270,10 +271,12 @@ export default class Home extends Component<Props, State> {
         // 递归创建导航
         return NavList.map((el: NavItem) => {
             if (el.children && el.children.length && Object.keys(el.children[0]).length) {
-                return <SubMenu key={el.key} 
+                return <SubMenu key={el.key}
+                                icon={<i className={el.icon}></i>}
                                 title={el.name}>{createNavItem(el.children)}</SubMenu>
             } else {
                 return <Menu.Item key={el.key}
+                                    icon={<i className={el.icon}></i>}
                                   onClick={() => clickMenuItem(el)}>{el.name}</Menu.Item>
             }
         })

@@ -52,34 +52,42 @@ export const INITIAL_PANES: any[] = [
 export const MENU_LIST: NavItem[] = [
     {
         name: '主页',
-        key: 'index'
+        key: 'index',
+        icon: 'iconfont icon-lishi'
     },
     {
         name: '字体图标',
-        key: 'iconfont'
+        key: 'iconfont',
+        icon: 'iconfont icon-zhengjian'
     },
     {
         name: 'echarts图表',
-        key: 'echarts'
+        key: 'echarts',
+        icon: 'iconfont icon-gaishuai'
     },
     {
         name: '表格',
-        key: 'table'
+        key: 'table',
+        icon: 'iconfont icon-dingdan'
     },
     {
         name: '骨架屏',
-        key: 'skeleton'
+        key: 'skeleton',
+        icon: 'iconfont icon-licai'
     },
     {
         name: '地图',
-        key: 'map'
+        key: 'map',
+        icon: 'iconfont icon-qiche'
     },
     {
         name: '富文本编辑器',
-        key: 'markdown'
+        key: 'markdown',
+        icon: 'iconfont icon-xinxi'
     },
     {
         name: '内置动画',
-        key: 'animation'
+        key: 'animation',
+        icon: 'iconfont icon-yinle'
     }
 ]
