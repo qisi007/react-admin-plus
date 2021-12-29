@@ -1,3 +1,44 @@
+@import "./var.scss";
+
 .background-black {
     background: rgba(0, 0, 0, 0.85) !important;
+}
+
+.ant-tabs-nav-list {
+    padding: 3px 10px;
+    overflow: hidden;
+}
+.ant-tabs-card.ant-tabs-small>.ant-tabs-nav .ant-tabs-tab {
+    padding: 2px 10px!important;
+    font-size: 12px!important;
+    border-radius: 3px!important;
+    padding-right: 5px!important;
+
+    &:first-child {
+        .ant-tabs-tab-remove {
+            display: none;
+        }
+    }
+}
+
+.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card.ant-tabs-top > div > .ant-tabs-nav .ant-tabs-tab-active {
+    background-color: $--primary-color!important;
+    .ant-tabs-tab-btn {
+        color: #fff!important;
+    }
+
+    .ant-tabs-tab-remove {
+        color: #fff!important;
+    }
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-more, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-more {
+    padding: 2px 10px!important;
+    font-size: 12px!important;
+}
+
+.ant-tabs-tab-remove {
+    margin: 0!important;
+    font-size: 8px!important;
+    margin-top: -2px!important;
 }
