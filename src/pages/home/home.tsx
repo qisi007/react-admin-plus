@@ -345,9 +345,11 @@ export default class Home extends Component<Props, State> {
             }
             this.setState({
                 navList,
-                activeKey: navItem.key
             })
         }
+        this.setState({
+            activeKey: navItem.key
+        })
     }
 
     /**
