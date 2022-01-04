@@ -404,7 +404,7 @@ export default class Home extends Component<Props, State> {
                 collapsed: !this.state.collapsed,
             });
         } else {
-            this.onOpenDrawer()
+            this.onOpenDrawer();
         }
     }
 }
