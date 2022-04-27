@@ -7,6 +7,46 @@
 
 export const NAV_LIST_MOCK = [
     {
+        name: '主页',
+        key: 'index',
+        icon: 'iconfont icon-lishi'
+    },
+    {
+        name: '字体图标',
+        key: 'iconfont',
+        icon: 'iconfont icon-zhengjian'
+    },
+    {
+        name: 'echarts图表',
+        key: 'echarts',
+        icon: 'iconfont icon-gaishuai'
+    },
+    {
+        name: '表格',
+        key: 'table',
+        icon: 'iconfont icon-dingdan'
+    },
+    {
+        name: '骨架屏',
+        key: 'skeleton',
+        icon: 'iconfont icon-licai'
+    },
+    {
+        name: '地图',
+        key: 'map',
+        icon: 'iconfont icon-qiche'
+    },
+    {
+        name: '富文本编辑器',
+        key: 'markdown',
+        icon: 'iconfont icon-xinxi'
+    },
+    {
+        name: '内置动画',
+        key: 'animation',
+        icon: 'iconfont icon-yinle'
+    },
+    {
         "key": "725",
         "name": "一级菜单",
         "icon": 'iconfont icon-wenjianchaxun'

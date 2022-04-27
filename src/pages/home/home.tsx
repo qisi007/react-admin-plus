@@ -7,7 +7,6 @@ import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
 import { NavItem, TabItem } from "../../interface/home_interface";
 import LogoBox from "../../components/base/logo_box";
-import { INITIAL_PANES, MENU_LIST } from "../../config/home_config";
 import { componentFactory } from "./component_factory";
 import { StorageMethods } from '../../utils/storage_utils';
 import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined, CloseOutlined } from '../../config/iconfont';
@@ -47,7 +46,6 @@ interface State {
     mode: string,
     overflowY: string,
     activeKey: string,
-    panes: TabItem[],
     username: string,
     navList: any[],
     visible: boolean,
@@ -67,7 +65,6 @@ export default class Home extends Component<Props, State> {
             mode: 'inline',
             overflowY: 'scroll',
             activeKey: 'index',
-            panes: INITIAL_PANES,
             username: 'admin',
             navList: [],
             visible: false,
@@ -128,15 +125,6 @@ export default class Home extends Component<Props, State> {
                             className="meun-box"
                             selectedKeys={[activeKey]}
                             defaultSelectedKeys={['index']}>
-                            {/* 主页导航 */}
-                            {
-                                MENU_LIST.map((el:NavItem) => {
-                                    let { key, name } = el;
-                                    return <Menu.Item key={key} 
-                                                icon={<i className={el.icon}></i>}
-                                            onClick={() => clickMenuItem(el)}> {name}  </Menu.Item>
-                                })
-                            }
                             {/* 树状导航 */}
                             {createMenu()}
                         </Menu>
@@ -156,15 +144,6 @@ export default class Home extends Component<Props, State> {
                             className="meun-box"
                             selectedKeys={[activeKey]}
                             defaultSelectedKeys={['index']}>
-                            {/* 主页导航 */}
-                            {
-                                MENU_LIST.map((el:NavItem) => {
-                                    let { key, name } = el;
-                                    return <Menu.Item key={key} 
-                                                icon={<i className={el.icon}></i>}
-                                            onClick={() => clickMenuItem(el)}> {name}  </Menu.Item>
-                                })
-                            }
                             {/* 树状导航 */}
                             {createMenu()}
                         </Menu>
@@ -335,7 +314,6 @@ export default class Home extends Component<Props, State> {
     * @version 2020-09-14 14:49:56 星期一
     */
     clickMenuItem = (navItem: NavItem) => {
-        console.log(navItem)
         let navList = [...this.state.navList];
         let result = navList.find(el => el.key == navItem.key)
         if ( navItem.key !== 'index' && !result) {
@@ -381,15 +359,15 @@ export default class Home extends Component<Props, State> {
     */
     onEdit = (targetKey: string, action: string) => {
         if ( action === 'remove') {
-            // 找到删除的索引
-            let removeIndex: number = INITIAL_PANES.findIndex( el => el.key === targetKey);
-            // 判断并生成激活的key
-            let activeKey: string;
-            if ( removeIndex === 0 && INITIAL_PANES.length>1 ) activeKey = INITIAL_PANES[removeIndex+1].key;
-            if ( removeIndex >0) activeKey = INITIAL_PANES[removeIndex-1].key;
-            // 删除tab并更新
-            INITIAL_PANES.splice(removeIndex, 1);
-            this.setState({panes: INITIAL_PANES, activeKey});
+            // // 找到删除的索引
+            // let removeIndex: number = INITIAL_PANES.findIndex( el => el.key === targetKey);
+            // // 判断并生成激活的key
+            // let activeKey: string;
+            // if ( removeIndex === 0 && INITIAL_PANES.length>1 ) activeKey = INITIAL_PANES[removeIndex+1].key;
+            // if ( removeIndex >0) activeKey = INITIAL_PANES[removeIndex-1].key;
+            // // 删除tab并更新
+            // INITIAL_PANES.splice(removeIndex, 1);
+            // this.setState({panes: INITIAL_PANES, activeKey});
         }
     }
 
