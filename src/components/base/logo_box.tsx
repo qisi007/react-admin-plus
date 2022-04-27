@@ -24,7 +24,7 @@ export default class LogoBox extends Component<Props, State> {
         // 样式计算
         let transform: string = size === 'large' ? 'scale(1)' : 'scale(0.8)'
         return (
-            <a href="https://www.liuguisheng.vip/" 
+            <a href="http://www.liuguisheng.vip/" 
                target="_blank" 
                rel="noopener noreferrer">
                 <div id="logo-box" 
