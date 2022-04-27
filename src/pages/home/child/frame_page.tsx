@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import { TabItem } from "../../../interface/home_interface";
 interface Props {
-    prop: TabItem
+    prop: any
 }
 
 interface State {
@@ -17,12 +16,11 @@ export default class FramePage extends Component<Props, State> {
         }
     }
     render = () => {
-        console.log(this.props)
-        let { title, content="" } = this.props.prop;
+        let { name, content="" } = this.props.prop;
         const { scrolling } = this.state
         return (
             <>
-                <p>{title}</p>
+                <p>{name}</p>
                 <iframe className="iframe-box" scrolling={scrolling} title="iframe" src={content}></iframe>
             </>
         )

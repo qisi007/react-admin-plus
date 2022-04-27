@@ -29,7 +29,6 @@ export default class Page extends Component<Props, State> {
 
   createList (that: any) {
 
-    console.log(that)
     return echartsList.map( (el: any, index: number) => {
       return (
           <li className="echarts-page_list_item" 

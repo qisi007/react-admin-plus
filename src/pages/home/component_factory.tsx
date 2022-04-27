@@ -7,7 +7,6 @@
 * @version 2020-09-20 09:56:24 星期天
 */
 import React from "react";
-import { TabItem } from "../../interface/home_interface";
 
 
 import framePage from "./child/frame_page";
@@ -35,9 +34,9 @@ const components:{[prop: string]: any} = {
 }
 
 // 组件渲染工厂
-export const componentFactory = ( config: TabItem ) => {
-    let { title } = config;
-    const Component = components[title];
+export const componentFactory = ( config: any ) => {
+    let { name } = config;
+    const Component = components[name];
     if( Component === undefined ) return React.createElement(framePage, {prop: config})
     return React.createElement(Component, {prop: config})
 }    

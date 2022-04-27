@@ -23,7 +23,7 @@
     .home-right {
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        overflow: auto;
 
         .header-box {
             width: 100%;
@@ -56,10 +56,7 @@
                             margin-right: 10px;
                         }
                     }
-
-
                 }
-
             }
         }
     }
@@ -69,6 +66,7 @@
 .card-container {
     width: 100%;
 }
+
 
 
 

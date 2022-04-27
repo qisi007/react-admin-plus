@@ -185,14 +185,14 @@ export default class Home extends Component<Props, State> {
                                 {
                                     defaultNav.map(el => {
                                         return  <TabPane tab={el.name} key={el.key}>
-                                                    <p>{el.name}</p>
+                                                    {componentFactory(el)}
                                                 </TabPane>
                                     })
                                 }
                                 {
                                     navList.map(el => {
                                         return  <TabPane tab={el.name} key={el.key}>
-                                                    <p>{el.name}</p>
+                                                    {componentFactory(el)}
                                                 </TabPane>
                                     })
                                 }
