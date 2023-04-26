@@ -5,7 +5,7 @@
 */
 
 
-import { SettingItem, NavItem } from "../interface/home_interface";
+import { SettingItem } from "../interface/home_interface";
 
 
 

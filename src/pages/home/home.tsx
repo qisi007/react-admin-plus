@@ -5,11 +5,11 @@ import GlobalConfigStore from "../../store/global_config";
 import { Menu, Tabs, Button, Tooltip, Modal, Drawer } from "antd";
 import GlobleSetting from "../../components/business/globle_setting";
 import { HomeService } from "../../service/home_service";
-import { NavItem, TabItem } from "../../interface/home_interface";
+import { NavItem } from "../../interface/home_interface";
 import LogoBox from "../../components/base/logo_box";
 import { componentFactory } from "./component_factory";
 import { StorageMethods } from '../../utils/storage_utils';
-import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined, CloseOutlined } from '../../config/iconfont';
+import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined } from '../../config/iconfont';
 import { h5Api } from "h5-api";
 
 
@@ -95,7 +95,7 @@ export default class Home extends Component<Props, State> {
         } 
     }
     render = () => {
-        let { createMenu, clickMenuItem, handGlobalSetting, toggleCollapsed  } = this;
+        let { createMenu, handGlobalSetting, toggleCollapsed  } = this;
         let { background, collapsed, theme, mode, visible, activeKey, username, navList, drawerVisible } = this.state;
         
         // 样式计算
@@ -243,16 +243,16 @@ export default class Home extends Component<Props, State> {
     }
     
     editTabsItem = ( index: string, action: any) => {
-        if ( index == 'index') return
+        if ( index === 'index') return
         let navList = [...this.state.navList];
-        if ( action == 'remove') {
-            let currentIndex = navList.findIndex( el => el.key == index )
+        if ( action === 'remove') {
+            let currentIndex = navList.findIndex( el => el.key === index )
             navList.splice(currentIndex, 1)
             let length = navList.length;
             let activeKey = null;
-            if ( currentIndex == length && length != 0 ) {
+            if ( currentIndex === length && length !== 0 ) {
                 activeKey = navList[currentIndex-1].key
-            }else if (currentIndex == length && length == 0 ) {
+            }else if (currentIndex === length && length === 0 ) {
                 activeKey = "index"
             } else {
                 activeKey = navList[currentIndex].key
@@ -315,10 +315,10 @@ export default class Home extends Component<Props, State> {
     */
     clickMenuItem = (navItem: NavItem) => {
         let navList = [...this.state.navList];
-        let result = navList.find(el => el.key == navItem.key)
+        let result = navList.find(el => el.key === navItem.key)
         if ( navItem.key !== 'index' && !result) {
             navList.push(navItem)
-            if ( !h5Api.isPc() && navList.length == 4) {
+            if ( !h5Api.isPc() && navList.length === 4) {
                 navList.splice(1, 1)
             }
             this.setState({

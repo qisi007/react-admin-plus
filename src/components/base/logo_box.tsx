@@ -31,7 +31,7 @@ export default class LogoBox extends Component<Props, State> {
                  style={{transform, backgroundColor: back}}>
                 <img src={url} alt="logo"/>
                 {
-                    size == 'large' && <span style={{color}}>{title}</span>
+                    size === 'large' && <span style={{color}}>{title}</span>
                 }
             </div>
             </a>

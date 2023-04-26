@@ -1,11 +1,12 @@
 
 
-import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
+import React from 'react';
+//import React, { useState } from 'react';
+// import ReactMarkdown from 'react-markdown';
 
 export default function () {
 
-    const [ articleDetail, setarticleDetail ] = useState('')
+    //const [ articleDetail, setarticleDetail ] = useState('')
 
     return(
         <>
