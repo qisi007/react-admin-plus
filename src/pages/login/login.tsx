@@ -37,36 +37,44 @@ export default class Login extends Component<Prop, State> {
                         frameBorder="0" scrolling="0"
                         src="https://img.shields.io/github/stars/qisi007/react-admin-plus?style=social&label=Star&maxAge=2592000">
                 </iframe>
-                <h1>React-Admin-Plus</h1>
-                <Form 
-                    name="basic"
-                    className="form"
-                    size="large"
-                    onFinish={onFinish}
-                    style={{fontSize: "20px"}}>
+                <div className="login-form">
+                    <h1>React-Admin-Plus</h1>
+                    <Form 
+                        name="basic"
+                        className="form"
+                        size="large"
+                        onFinish={onFinish}
+                        style={{fontSize: "20px"}}>
+                        
+
+                        <Form.Item
+                            label="账号"
+                            name="username"
+                            rules={[{ required: true, message: MESSAGE_CONFIG.usernameEmpty }]}>
+                            <Input placeholder="请输入账号"/>
+                        </Form.Item>
+
+                        <Form.Item
+                            label="密码"
+                            name="password"
+                            rules={[{ required: true, message: MESSAGE_CONFIG.passwordEmpty }]}>
+                            <Input.Password placeholder="请输入密码"/>
+                        </Form.Item>
+
+                        <Form.Item>
+                            <div className="login-btn">
+                                <Button type="primary"
+                                    htmlType="submit"
+                                    style={{width: "100%"}}
+                                    loading={loading}>登录</Button>
+                            </div>
+                        </Form.Item>
+                        <Form.Item>
+                            <div className="tips">*账号密码随便输入</div>
+                        </Form.Item>
+                    </Form>
                     
-
-                    <Form.Item
-                        label="账号"
-                        name="username"
-                        rules={[{ required: true, message: MESSAGE_CONFIG.usernameEmpty }]}>
-                        <Input placeholder="请输入账号"/>
-                    </Form.Item>
-
-                    <Form.Item
-                        label="密码"
-                        name="password"
-                        rules={[{ required: true, message: MESSAGE_CONFIG.passwordEmpty }]}>
-                        <Input.Password placeholder="请输入密码"/>
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Button type="primary"
-                            htmlType="submit"
-                            loading={loading}>登录</Button>
-                    </Form.Item>
-                </Form>
-                <div className="tips">*账号密码随便输入</div>
+                </div>
             </div>
         )
     }

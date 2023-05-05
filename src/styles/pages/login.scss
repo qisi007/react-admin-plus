@@ -6,6 +6,9 @@
     text-align: center;
     overflow: hidden;
     background: linear-gradient(60deg, #2B2E4A 0%, #2B2E4A 30%, #E84545 calc(30% + 1px), #E84545 60%, #903749 calc(60% + 1px), #903749 70%, #53354A calc(70% + 1px), #53354A 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 
     &::-webkit-scrollbar {
@@ -22,7 +25,6 @@
         color: #fff;
         font-size: 48px;
         line-height: 100px;
-        margin-top: 300px;
     }
 
     .form {
@@ -39,15 +41,31 @@
         }
     }
 
-    .tips {
-        color: #ccc;
-        margin-left: 300px;
-        font-size: 10px;
-    }
-
-    .ant-btn {
+    .login-btn {
         width: 348px;
         margin-left: 52px;
+    }
+
+    .tips {
+        color: #ccc;
+        font-size: 10px;
+        text-align: right;
+    }
+
+    @media ( width < 550px ) {
+
+        h1 {
+            font-size: 38px;
+        }
+
+        .form {
+            width: 300px;
+        }
+
+        .login-btn  {
+            width: 300px;
+            margin-left: 0;
+        }
     }
    
 }
